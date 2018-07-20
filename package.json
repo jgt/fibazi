@@ -1,0 +1,25 @@
+{
+  "name": "fibazi-sistema",
+  "version": "1.0.0",
+  "description": "pagina web",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgt/fibazi.git"
+  },
+  "author": "Jair Galvis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgt/fibazi/issues"
+  },
+  "homepage": "https://github.com/jgt/fibazi#readme"
+}

@@ -1,0 +1,56 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'Contacts'
+	- var pageName = 'Contacts'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Contact Us", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": pageName}
+	}
+	)
+	
+	// RD Google Map
+	section
+		.google-map-container(data-zoom='10', data-center='2130 Brightside Ln New York, NY 94117-1080 USA', data-icon='images/gmap_marker.png', data-icon-active='images/gmap_marker_active.png', data-styles='[{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]')
+			.google-map
+			ul.google-map-markers
+				li(data-location='2130 Brightside Ln New York, NY 94117-1080 USA', data-description='2130 Brightside Ln New York, NY 94117-1080 USA')
+	='\n'
+	
+	// Contacts
+	section.section.section-lg.bg-white
+		.shell.shell-wide
+			.range.range-40.range-center
+				.cell-sm-10.cell-md-8.cell-lg-7.cell-xl-6.cell-xl-preffix-1
+					h2 Get in Touch
+					.divider.divider-2
+					p You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit our office personally.
+					// RD Mailform
+					form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='forms', method='post', action='bat/rd-mailform.php')
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-name-1") Nickname
+							input#forms-name-1.form-input(type="text" name="name" data-constraints='@Required')
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-email-1") E-mail
+							input#forms-email-1.form-input(type="email" name="email" data-constraints="@Email @Required")
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-password-1") Password
+							input#forms-password-1.form-input(type="password" name="password" data-constraints="@Required")
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-confirm-password-1") Confirm Password
+							input#forms-confirm-password-1.form-input(type="password" name="password-confirm" data-constraints="@Required")
+						.form-button
+							button(type="submit").button.button-block.button-primary Sign up
+	='\n'
+	
+	// Page Footer
+	include ../sections/_footer-default

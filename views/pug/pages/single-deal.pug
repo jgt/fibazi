@@ -1,0 +1,147 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'Deals'
+	- var pageName = 'Single Deal'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	='\n'
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Newly Built Condominium", false,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": "All Deals", "href": "all-deals.html"},
+		2: {"title": pageName}
+	}
+	)
+	='\n'
+	
+	//Hot Deals
+	section.section.section-lg.bg-white
+		.shell-wide.head-regular
+			.range.range-xs-center.range-30
+				.cell-sm-12.cell-lg-5.cell-xl-6.cell-image-1
+					.cell-image-wrap
+						+jpg("single-deal-1-840x600")
+				.cell-sm-6.cell-md-6.cell-lg-3.cell-xl-3.cell-vertical-align
+					.range.range-30
+						.cell-sm-12
+							h5 Parameters
+							.divider.divider-5
+							ul.list-marked-1
+								li 7 bedrooms
+								li 4 bathrooms
+								li 1500.00 m² of area
+								li 3 parking spaces
+								li High ceilings
+								li Panoramic windows
+								li A private dining room
+								li Catering kitchen
+								li Swimming pool
+								li Children’s playroom
+						.cell-sm-12
+							h5 $35.00/month
+							a(href="#").button.button-primary.button-sm Book this car
+				.cell-sm-6.cell-md-6.cell-lg-4.cell-xl-3
+					.heading-5 Description
+					.divider.divider-5
+					p Quasi, voluptatibus earum porro iste illum. Esse saepe delectus neque iste fugit, non, aliquid impedit odio eligendi alias a ab molestias molestiae accusantium maxime minima id quis illo, repellendus est. Atque provident assumenda officia nemo animi dolore minima eum expedita. Neque vitae soluta illo eligendi, amet a eos ipsa harum doloremque alias aliquam incidunt.
+					.google-map-container.google-map-container_small(data-zoom='15', data-center='6036 Richmond hwy., Alexandria, VA, 2230', data-icon='images/gmap_marker.png', data-icon-active='images/gmap_marker_active.png', data-styles='[{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]')
+						.google-map
+						ul.google-map-markers
+							li(data-location='6036 Richmond hwy., Alexandria, VA, 2230', data-description='6036 Richmond hwy., Alexandria, VA, 2230')
+	='\n'
+	
+	.shell-wide
+		.divider.divider-6
+	='\n'
+	
+	//Hot Deals
+	section.section.section-lg.bg-white
+		.shell-wide
+			.range.range-xs-center.text-center
+				.cell-sm-12.cell-lg-10.cell-xl-6
+					h2 Hot Deals
+					.divider.divider-2
+			.range.range-xs-center.range-50.range-md-90
+				.cell-sm-6.cell-lg-3
+					+deal(
+					{
+						imageName: "deals-2-420x290",
+						place: "New York",
+						title: "Renovated Family Home",
+						link: "single-deal.html",
+						exeption: "Voluptatum deserunt fugiat porro quisquam voluptatibus reprehenderit ducimus voluptate eligendi repellendus dolore, harum aliquid quia eveniet quas, mollitia",
+						price: "$35.00/month",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Bedrooms: 2"},
+						{"opportunity": "2 Area: 1600.00 m²"},
+						{"opportunity": "Bathrooms: 3"},
+						{"opportunity": "Parking spaces: 3"}
+					]
+					)
+				.cell-sm-6.cell-lg-3
+					+deal(
+					{
+						imageName: "deals-3-420x290",
+						place: "New York",
+						title: "Villa Bastilicata Grande",
+						link: "single-deal.html",
+						exeption: "Ex cupiditate facere, asperiores, accusamus molestiae rerum dolore repellendus ad, et fuga voluptates quas labore magni natus provident cumque beatae",
+						price: "$34.00/month",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Bedrooms: 5"},
+						{"opportunity": "3 Area: 1500.00 m²"},
+						{"opportunity": "Bathrooms: 4"},
+						{"opportunity": "Parking spaces: 2"}
+					]
+					)
+				.cell-sm-6.cell-lg-3
+					+deal(
+					{
+						imageName: "deals-4-420x290",
+						place: "New York",
+						title: "Le Marche Etna House",
+						link: "single-deal.html",
+						exeption: "Quasi, voluptatibus earum porro iste illum. Esse saepe delectus neque iste fugit, non, aliquid impedit odio eligendi alias a ab molestias molestiae accusantium",
+						price: "$34.00/month",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Bedrooms: 3"},
+						{"opportunity": "2 Area: 1300.00 m²"},
+						{"opportunity": "Bathrooms: 3"},
+						{"opportunity": "Parking spaces: 1"}
+					]
+					)
+				.cell-sm-6.cell-lg-3
+					+deal(
+					{
+						imageName: "deals-5-420x290",
+						place: "San Francisco",
+						title: "California Beach House",
+						link: "single-deal.html",
+						exeption: "Officia provident doloremque eum. Repudiandae a ea non vitae animi, labore, voluptatibus laborum ipsam maxime explicabo alias asperiores perferendis facere.",
+						price: "$35.00/month",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Bedrooms: 6"},
+						{"opportunity": "3 Area: 1500.00 m²"},
+						{"opportunity": "Bathrooms: 4"},
+						{"opportunity": "Parking spaces: 2"}
+					]
+					)
+	='\n'
+	
+	// Page Footer
+	include ../sections/_footer-default

@@ -1,0 +1,118 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'Pages'
+	- var pageName = 'Forms'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Choose Your Style", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": "Pages", "href": "#"},
+		2: {"title": pageName}
+	}
+	)
+
+	// Login form
+	section.section.section-lg.bg-white
+		.shell.text-center
+			h2 Login Form
+			.divider.divider-2
+			.range.range-xs-center
+				.cell-sm-8.cell-md-6.cell-lg-4
+					// RD Mailform
+					form.rd-mailform.text-left
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-login-name") Nickname
+							input#forms-login-name.form-input(type="text" name="name" data-constraints='@Required')
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-login-password") Password
+							input#forms-login-password.form-input(type="password" name="password" data-constraints="@Required")
+						button(type="submit").button.button-block.button-primary Sign In
+
+					.group-button-half
+						a(href='#').button.button-steel-blue.button-icon-1.button-icon-1-left
+							span.icon.fa.fa-facebook
+							span.button-text Facebook
+
+						a(href='#').button.button-cerulean.button-icon-1.button-icon-1-left
+							span.icon.fa.fa-twitter
+							span.button-text Twitter
+
+	section.section.section-lg.text-center.bg-white
+		.shell
+			h2 Registration Form
+			.divider.divider-2
+			.range.range-xs-center
+				.cell-sm-8.cell-md-6.cell-lg-4
+					// RD Mailform
+					form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='forms', method='post', action='bat/rd-mailform.php')
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-name-1") Nickname
+							input#forms-name-1.form-input(type="text" name="name" data-constraints='@Required')
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-email-1") E-mail
+							input#forms-email-1.form-input(type="email" name="email" data-constraints="@Email @Required")
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-password-1") Password
+							input#forms-password-1.form-input(type="password" name="password" data-constraints="@Required")
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-confirm-password-1") Confirm Password
+							input#forms-confirm-password-1.form-input(type="password" name="password-confirm" data-constraints="@Required")
+						.form-button
+							button(type="submit").button.button-block.button-primary Sign up
+
+
+	section.section.section-lg.text-center.bg-white
+		.shell
+			h2 Registration Form with reCaptcha
+			.divider.divider-2
+			.range.range-xs-center
+				.cell-sm-8.cell-md-6.cell-lg-4
+					// RD Mailform
+					form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='forms', method='post', action='bat/rd-mailform.php')
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-name") Nickname
+							input#forms-name.form-input(type="text" name="name" data-constraints='@Required')
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-email") E-mail
+							input#forms-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-password") Password
+							input#forms-password.form-input(type="password" name="password" data-constraints="@Required")
+						.form-wrap.form-wrap-validation
+							label.form-label.form-label-outside(for="forms-confirm-password") Confirm Password
+							input#forms-confirm-password.form-input(type="password" name="password-confirm" data-constraints="@Required")
+						//Google captcha
+						.form-wrap.form-validation-left
+							.recaptcha#captcha1(data-sitekey="6LfZlSETAAAAAC5VW4R4tQP8Am_to4bM3dddxkEt")
+						.form-button
+							button(type="submit").button.button-block.button-primary Sign up
+
+
+	+parallax({
+		img: "images/parallax-1.jpg",
+		addClass: "section-xl context-dark text-center"
+	})
+		.shell
+			h2 Newsletter
+			.divider.divider-2
+			.range.range-xs-center
+				.cell-sm-8.cell-lg-6
+					p Sign up to our newsletter and be the first to know about latest company news, special offers, events, and discounts.
+
+					// RD Mailform
+					form.rd-mailform.rd-mailform-inline.text-left(data-form-output="form-output-global", data-form-type='forms', method='post', action='bat/rd-mailform.php')
+						.form-wrap
+							label.form-label(for="inline-email") Enter your e-mail
+							input#inline-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+						button(type="submit").button.button-primary Subscribe
+
+	// Page Footer
+	include ../sections/_footer-default

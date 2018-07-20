@@ -1,0 +1,67 @@
+// RD Navbar Nav
+ul.rd-navbar-nav
+	li(class=(activeCategory == 'Home' ? 'active' : ''))
+		a(href='./') Home
+
+	li(class=(activeCategory == 'About' ? 'active' : ''))
+		a(href='#') About
+		// RD Navbar Dropdown
+		ul.rd-navbar-dropdown
+			li: a(href='about-us.html') About Us
+			li: a(href='testimonials.html') Testimonials
+			li: a(href='careers.html') Careers
+
+	li(class=(activeCategory == 'Services' ? 'active' : ''))
+		a(href='#') Services
+		// RD Navbar Dropdown
+		ul.rd-navbar-dropdown
+			li: a(href='all-services.html') All Services
+			li: a(href='single-service.html') Single Service
+
+	li(class=(activeCategory == 'Deals' ? 'active' : ''))
+		a(href='#') Deals
+		// RD Navbar Dropdown
+		ul.rd-navbar-dropdown
+			li: a(href='all-deals.html') All Deals
+			li: a(href='single-deal.html') Single Deal
+
+	li(class=(activeCategory == 'News' ? 'active' : ''))
+		a(href='#') News
+		// RD Navbar Dropdown
+		ul.rd-navbar-dropdown
+			li: a(href='/blog') Classic Blog
+			li: a(href='blog-post.html') Blog Post
+
+	li(class=(activeCategory == 'Locations' ? 'active' : ''))
+		a(href='locations.html') Locations
+
+	li(class=(activeCategory == 'Pages' ? 'active' : ''))
+		a(href='#') Pages
+		// RD Navbar Megamenu
+		ul.rd-navbar-megamenu
+			li
+				ul.rd-megamenu-list
+					li: a(href='buttons.html') Buttons
+					li: a(href='forms.html') Forms
+					li: a(href='grid.html') Grid
+					li: a(href='progress-bars.html') Progress Bars
+					li: a(href='tables.html') Tables
+					li: a(href='tabs-and-accordions.html') Tabs and accordions
+					li: a(href='typography.html') Typography
+			li
+				ul.rd-megamenu-list
+					li: a(href='404-page.html') 404 Page
+					li: a(href='503-page.html') 503 Page
+					li: a(href='under-construction.html') Under construction
+					li: a(href='coming-soon.html') Coming soon
+					li: a(href='privacy-policy.html') Terms of Use
+					li: a(href='site-map.html') Site map
+					li: a(href='faq.html') FAQ
+			li
+				ul.rd-megamenu-list
+					li: a(href='grid-gallery.html') Grid gallery
+					li: a(href='masonry-gallery.html') Masonry gallery
+					li: a(href='cobbles-gallery.html') Cobbles gallery
+
+	li(class=(activeCategory == 'Contacts' ? 'active' : ''))
+		a(href='contacts.html') Contacts

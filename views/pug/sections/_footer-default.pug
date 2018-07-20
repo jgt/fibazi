@@ -1,0 +1,65 @@
+footer
+	.range.range-condensed.range-flex
+		.cell-sm-9
+			.footer-wrapper.footer-1
+				.shell-fluid
+					.range.range-30.range-xl-120
+						.cell-sm-6.cell-lg-4
+							.width-wrap
+								a.brand-logo(href='index.html')
+									+png(logoInverse)
+							.width-wrap
+								p Real Estate is the largest full-service real estate company. We offer expertise in the marketing and sale of a wide range of properties, including residential real estate, farms and lifestyle blocks, as well as commercial and industrial properties.
+						.cell-sm-6.cell-lg-4
+							.width-wrap
+								h5 Contact Information
+								.divider.divider-5
+								+contact-box(
+								{
+									location: "Real Estate Inc. 9863 - 9867 Mill Road, Cambridge, MG09 99HT.",
+									locationLink: "#",
+									email: "mail@demolink.org",
+									emailLink: "#"
+								},
+								[
+									{phone: "1 800 123-45-56", phoneLink: "#"},
+									{phone: "1 800 678-89-90", phoneLink: "#"}
+								]
+								)
+						.cell-sm-12.cell-lg-4
+							.width-wrap
+								h5 Newsletter
+								.divider.divider-5
+								p Enter your email address to receive all news, updates on new properties, special offers and other discount information.
+								// RD Mailform
+								form.rd-mailform.rd-mailform-inline.form-small.text-left(data-form-output="form-output-global", data-form-type='forms', method='post', action='bat/rd-mailform.php')
+									.form-wrap
+										label.form-label(for="inline-email-footer") Your e-mail
+										input#inline-email-footer.form-input(type="email" name="email" data-constraints="@Email @Required")
+									button(type="submit").button.button-primary Subscribe
+						.cell-sm-12.cell-md-7.text-center.text-md-left
+							p.copyright
+								| &#169;
+								= " "
+								span.copyright-year
+								= " "
+								| All Rights Reserved
+								= " "
+								a.link(href='privacy-policy.html') Terms of Use
+								= " "
+								| and
+								= " "
+								a.link(href='privacy-policy.html') Privacy Policy
+						.cell-sm-12.cell-md-5.text-center.text-md-right
+							.width-wrap
+								ul.list-inline
+									li: a.icon.icon-xs.icon-dark-filled.fa-facebook(href="#")
+									li: a.icon.icon-xs.icon-dark-filled.fa-google(href="#")
+									li: a.icon.icon-xs.icon-dark-filled.fa-twitter(href="#")
+									li: a.icon.icon-xs.icon-dark-filled.fa-linkedin(href="#")
+									li: a.icon.icon-xs.icon-dark-filled.fa-instagram(href="#")
+		.cell-sm-3
+			.google-map-container.google-map-container-align(data-zoom='12', data-center='6036 Richmond hwy., Alexandria, VA, 2230', data-icon='images/gmap_marker.png', data-icon-active='images/gmap_marker_active.png', data-styles='[{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]')
+				.google-map
+				ul.google-map-markers
+					li(data-location='6036 Richmond hwy., Alexandria, VA, 2230', data-description='6036 Richmond hwy., Alexandria, VA, 2230')

@@ -1,0 +1,78 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-table-custom
+
+block variables
+  - var activeCategory = 'Pages'
+  - var pageName = 'Tables'
+
+block title
+  title=pageName
+
+block page
+  // Page Header
+  include ../sections/_header-default
+
+
+  +breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Choose your style", true,
+  {
+    0: {"title": "Home", "href": "./"},
+    1: {"title": "Pages", "href": "#"},
+    2: {"title": pageName}
+  }
+  )
+
+  // Hover Row Table
+  section.section.section-lg.bg-white.text-center
+    .shell
+      h2 Hover Row Table
+      .divider.divider-2
+
+      .range.range-xs-center
+        .cell-sm-10.cell-lg-8
+          +table-custom([
+            ['Column 1', 'Column 2', 'Column 3', 'Column 4'],
+            ['1', 'Description', 'Title', '$4,00'],
+            ['2', 'Description', 'Subtitle', '$10,00'],
+            ['3', 'Description', 'Title', '$4,00'],
+            ['4', 'Description', 'Text', '$2,00']],
+          "table-fixed table-hover-rows", true)
+
+
+  // Color Header
+  section.section.section-lg.bg-white.text-center
+    .shell
+      h2 Color Header
+      .divider.divider-2
+
+      .range.range-xs-center
+        .cell-sm-10.cell-lg-8
+          +table-custom([
+            ['Column 1', 'Column 2', 'Column 3', 'Column 4'],
+            ['1', 'Description', 'Title', '$4,00'],
+            ['2', 'Description', 'Subtitle', '$10,00'],
+            ['3', 'Description', 'Title', '$4,00'],
+            ['4', 'Description', 'Text', '$2,00']],
+          "table-primary table-fixed", true)
+
+
+  // Bordered Table
+  section.section.section-lg.bg-white.text-center
+    .shell
+      h2 Bordered Table
+      .divider.divider-2
+
+      .range.range-xs-center
+        .cell-sm-10.cell-lg-8
+          +table-custom([
+            ['Column 1', 'Column 2', 'Column 3', 'Column 4'],
+            ['1', 'Description', 'Title', '$4,00'],
+            ['2', 'Description', 'Subtitle', '$10,00'],
+            ['3', 'Description', 'Title', '$4,00'],
+            ['4', 'Description', 'Text', '$2,00']]
+          , "table-fixed bordered-table", true)
+
+
+  // Page Footer
+  include ../sections/_footer-default

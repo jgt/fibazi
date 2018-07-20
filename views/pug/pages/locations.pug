@@ -1,0 +1,115 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'Locations'
+	- var pageName = 'Locations'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Where to Find Us", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": pageName}
+	}
+	)
+	
+	// RD Google Map
+	section
+		.google-map-container(data-zoom='5', data-center='usa', data-icon='images/gmap_marker.png', data-icon-active='images/gmap_marker_active.png', data-styles='[{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]')
+			.google-map
+			ul.google-map-markers
+				li(data-location='2130 Brightside Ln New York, NY 94117-1080 USA',      data-description='2130 Brightside Ln New York, NY 94117-1080 USA')
+				li(data-location='2130 Fulton Street Boston, MA 94117-1080 USA',        data-description='2130 Fulton Street Boston, MA 94117-1080 USA')
+				li(data-location='2130 Smith Ave Chicago, IL 94117-1080 USA',           data-description='2130 Smith Ave Chicago, IL 94117-1080 USA')
+				li(data-location='2130 Wilson Street San Francisco, CA 94117-1080 USA', data-description='2130 Wilson Street San Francisco, CA 94117-1080 USA')
+	='\n'
+	
+	//Popular Rental Locations
+	section.section.section-lg.bg-gray-lighter
+		.shell-wide
+			.range.range-xs-center.range-30.text-center
+				.cell-sm-12.cell-lg-10.cell-xl-6
+					h2 Popular Real Estate Locations
+					.divider.divider-2
+					p In placeat inventore quidem eum nulla dolores fugiat hic omnis deserunt fuga, reprehenderit autem qui aut, est ab, nisi ea consequatur soluta veritatis voluptate cumque, fugit eveniet enim. Doloribus, similique!
+			.range.range-xs-center.range-flex.range-30
+				.cell-sm-6.cell-lg-3
+					+location(
+					{
+						imgName: "locations-1-420x290",
+						title: "Real Estate Boston ",
+						titleLink: "#",
+						location: "2130 Fulton Street Boston, MA 94117-1080 USA.",
+						locationLink: "#",
+						phone: "1 800 123-45-78",
+						phoneLink: "#"
+					},
+					[
+						{"infoCount": "115", "infoTitle": "Properties"},
+						{"infoCount": "12K", "infoTitle": "Clients"},
+						{"infoCount": "14", "infoTitle": "Offices"}
+					]
+					)
+				
+				.cell-sm-6.cell-lg-3
+					+location(
+					{
+						imgName: "locations-2-420x290",
+						title: "Real Estate New York",
+						titleLink: "#",
+						location: "2130 Brightside Ln, New York, NY 94117-1080 USA",
+						locationLink: "#",
+						phone: "1 800 123-45-56",
+						phoneLink: "#"
+					},
+					[
+						{"infoCount": "115", "infoTitle": "Properties"},
+						{"infoCount": "15K", "infoTitle": "Clients"},
+						{"infoCount": "10", "infoTitle": "Offices"}
+					]
+					)
+				
+				.cell-sm-6.cell-lg-3
+					+location(
+					{
+						imgName: "locations-3-420x290",
+						title: "Real Estate Chicago",
+						titleLink: "#",
+						location: "2130 Smith Ave Chicago, IL 94117-1080 USA",
+						locationLink: "#",
+						phone: "1 800 123-45-56",
+						phoneLink: "#"
+					},
+					[
+						{"infoCount": "115", "infoTitle": "Properties"},
+						{"infoCount": "12K", "infoTitle": "Clients"},
+						{"infoCount": "16", "infoTitle": "Offices"}
+					]
+					)
+				
+				.cell-sm-6.cell-lg-3
+					+location(
+					{
+						imgName: "locations-4-420x290",
+						title: "Real Estate San Francisco",
+						titleLink: "#",
+						location: "2130 Wilson Street, San Francisco, CA 94117-1080 USA.",
+						locationLink: "#",
+						phone: "1 800 123-45-56",
+						phoneLink: "#"
+					},
+					[
+						{"infoCount": "515", "infoTitle": "Properties"},
+						{"infoCount": "22K", "infoTitle": "Clients"},
+						{"infoCount": "18", "infoTitle": "Offices"}
+					]
+					)
+	='\n'
+	
+	// Page Footer
+	include ../sections/_footer-default

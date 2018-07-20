@@ -1,0 +1,45 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'News'
+	- var pageName = 'Blog Post'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	='\n'
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Real Estate Guide: 7 Important Tips for Buying a Home", false,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": "News", "href": "#"},
+		2: {"title": pageName}
+	}
+	)
+	='\n'
+	
+	section.section.section-lg.bg-white
+		.shell.shell-wide
+			.range.range-40.range-center
+				.cell-sm-10.cell-md-8.cell-lg-7.cell-xl-6.cell-xl-preffix-1
+					include ../sections/blog/_single-post-section
+				.cell-sm-10.cell-md-4.cell-lg-4.cell-xl-3.cell-lg-preffix-1
+					.widget-list
+						.widget-list-item
+							include ../sections/blog/widgets/_search-blog
+						.widget-list-item
+							include ../sections/blog/widgets/_archive
+						.widget-list-item
+							include ../sections/blog/widgets/_gallery
+						.widget-list-item
+							include ../sections/blog/widgets/_categories
+						.widget-list-item
+							a(href="#").banner-link
+								+jpg("banner-1-420x570")
+	='\n'
+	
+	// Page Footer
+	include ../sections/_footer-default

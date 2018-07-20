@@ -1,0 +1,80 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-progress-bar-linear
+include ../sections/_testimonials
+
+block variables
+	- var activeCategory = 'About'
+	- var pageName = 'About us'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	='\n'
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Overview & History", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": "About", "href": "#"},
+		2: {"title": pageName}
+	}
+	)
+	='\n'
+	
+	//About Us
+	section.section.bg-white
+		.range.range-xs-center
+			.cell-sm-10.cell-lg-7
+				.section-lg
+					.shell-fluid
+						.range.range-xs-center
+							.cell-sm-10.cell-xl-8
+								h2 About Us
+								.divider.divider-2
+								p.big Laborum corrupti, doloremque, ut inventore, tempore consectetur esse saepe dignissimos doloribus consequuntur.
+								p Perferendis, assumenda earum mollitia necessitatibus ipsum fugit perspiciatis accusantium, quidem natus, voluptatibus rem excepturi quibusdam. Debitis in nihil, laborum voluptates autem mollitia esse laudantium, fuga saepe architecto nostrum fugit. Perspiciatis!
+								
+								+progress-bar-linear({
+									"class": "progress-secondary",
+									"title": "Commercial Properties",
+									"valueTo": "75"
+								})
+								
+								+progress-bar-linear({
+									"class": "progress-secondary",
+									"title": "Residential Properties",
+									"valueTo": "90"
+								})
+								
+								+progress-bar-linear({
+									"class": "progress-secondary",
+									"title": "Land",
+									"valueTo": "50"
+								})
+								
+								a.button.button-primary(href="#") Learn more
+			.cell-sm-10.cell-lg-5.cell-image
+				.cell-image-wrap
+					+jpg("about-us-1-800x917")
+	='\n'
+	
+	// Counters
+	include ../sections/_counters
+	='\n'
+	
+	//Advantages
+	include ../sections/_advantages
+	='\n'
+	
+	//Testimonials
+	+testimonials({
+		classSection: 'bg-gray-lighter'
+	})
+	='\n'
+	
+	// Page Footer
+	include ../sections/_footer-default

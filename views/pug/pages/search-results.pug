@@ -1,0 +1,31 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 0
+	- var pageName = 'Search results'
+
+block title
+	title Search results
+
+block page
+	// Page Header
+	include ../sections/_header-default
+
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": pageName}
+	}
+	)
+
+	//Search results
+	section.section-md
+		.shell
+			h2 Search results
+
+			.range.range-center
+				.cell-md-12
+					.rd-search-results
+
+	// Page Footer
+	include ../sections/_footer-default

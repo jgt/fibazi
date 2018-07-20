@@ -1,0 +1,97 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-progress-bar-linear
+include ../elements/_ui-counter
+
+block variables
+	- var activeCategory = 'Pages'
+	- var pageName = 'Progress bars'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Choose Your Style", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": "Pages", "href": "#"},
+		2: {"title": pageName}
+	}
+	)
+	
+	// Skill Bars
+	section.section-lg.bg-white.bg-white
+		.shell.text-center
+			h2 Skill Bars
+			.divider.divider-2
+			.range.range-xs-center
+				.cell-xs-10.cell-sm-8.cell-md-6
+					
+					+progress-bar-linear({
+						"class": "progress-secondary",
+						"title": "Commercial Properties",
+						"valueTo": "75"
+					})
+					
+					+progress-bar-linear({
+						"class": "progress-secondary",
+						"title": "Residential Properties",
+						"valueTo": "90"
+					})
+					
+					+progress-bar-linear({
+						"class": "progress-secondary",
+						"title": "Land",
+						"valueTo": "50"
+					})
+	
+	// Counters
+	section.section-lg.text-center.bg-white
+		.shell
+			.range.range-xs-center
+				.cell-xs-10.cell-sm-8.cell-md-12
+					h2 Counters
+					.divider.divider-2
+					.range.range-xs-center.range-60
+						.cell-xs-6.cell-md-3
+							+counter("Years of Experience", "", {
+								"dataTo": "10",
+								"dataSpeed": "3000",
+								"attr": "heading-5"
+							}, "heading-1")
+						.cell-xs-6.cell-md-3
+							+counter("Partners", "", {
+								"dataTo": "7",
+								"dataSpeed": "2500",
+								"attr": "heading-5"
+							}, "heading-1")
+						.cell-xs-6.cell-md-3
+							+counter("Properties Sold Daily", "", {
+								"dataTo": "126",
+								"dataSpeed": "1500",
+								"attr": "heading-5"
+							}, "heading-1")
+						.cell-xs-6.cell-md-3
+							+counter("New Services", "", {
+								"dataTo": "12",
+								"dataSpeed": "1300",
+								"attr": "heading-5"
+							}, "heading-1")
+	
+	// Countdown
+	section.section-lg.bg-white
+		.shell.text-center
+			h2 Countdown
+			.divider.divider-2
+			.range.range-xs-center
+				.cell-sm-10.cell-lg-9
+					// TimeCircles
+					.countdown-wrap
+						.DateCountdown(data-date='2019-10-01 00:00:00' data-bg-width='1' data-width='0.025' data-bg='#36b1af' data-color='#ef9632')
+	
+	// Page Footer
+	include ../sections/_footer-default

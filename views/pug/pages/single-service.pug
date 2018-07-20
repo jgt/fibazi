@@ -1,0 +1,184 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_testimonials
+
+block variables
+	- var activeCategory = 'Services'
+	- var pageName = 'Single Service'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	='\n'
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Limousine Rental", false,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": "All Services", "href": "all-services.html"},
+		2: {"title": pageName}
+	}
+	)
+	='\n'
+	
+	//About This Service
+	section.section.bg-white
+		.range.range-xs-center
+			.cell-sm-10.cell-lg-6.cell-image
+				.cell-image-wrap
+					+jpg("single-service-1-945x588")
+			.cell-sm-10.cell-lg-6
+				.section-lg
+					.shell-fluid
+						.range.range-xs-center
+							.cell-sm-10.cell-xl-8
+								h2 About This Service
+								.divider.divider-2
+								p Perferendis, assumenda earum mollitia necessitatibus ipsum fugit perspiciatis accusantium, quidem natus, voluptatibus rem excepturi quibusdam. Debitis in nihil, laborum voluptates autem mollitia esse laudantium, fuga saepe architecto nostrum fugit. Perspiciatis! Dolorem placeat quis temporibus, repellendus distinctio harum sunt ducimus. Sequi recusandae nisi maiores veniam, sapiente earum odit.
+								a.button.button-primary(href="#") Learn more
+	='\n'
+	
+	//Pricing
+	section.section.section-lg.bg-gray-lighter
+		.shell-wide
+			.range.range-xs-center.text-center
+				.cell-sm-12.cell-lg-10.cell-xl-6
+					h2 Pricing
+					.divider.divider-2
+			.range.range-condensed.range-xs-center
+				.cell-sm-6.cell-md-3
+					+price-box(
+					{
+						title: "Basic",
+						price: "$47.00",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Beach Vacation Rentals"},
+						{"opportunity": "Properties for Summer Holidays", "listClass": "strike"},
+						{"opportunity": "Rentals for Winter Vacations", "listClass": "strike"},
+						{"opportunity": "Fishing Vacation Rentals", "listClass": "strike"}
+					]
+					)
+				.cell-sm-6.cell-md-3
+					+price-box(
+					{
+						title: "Standard",
+						price: "$58.00",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Beach Vacation Rentals"},
+						{"opportunity": "Properties for Summer Holidays"},
+						{"opportunity": "Rentals for Winter Vacations", "listClass": "strike"},
+						{"opportunity": "Fishing Vacation Rentals", "listClass": "strike"}
+					]
+					)
+				.cell-sm-6.cell-md-3
+					+price-box(
+					{
+						title: "Gold",
+						price: "$73.00",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Beach Vacation Rentals"},
+						{"opportunity": "Properties for Summer Holidays"},
+						{"opportunity": "Rentals for Winter Vacations"},
+						{"opportunity": "Fishing Vacation Rentals", "listClass": "strike"}
+					]
+					)
+				.cell-sm-6.cell-md-3
+					+price-box(
+					{
+						title: "Platinum",
+						price: "$88.00",
+						bookLink: "#"
+					},
+					[
+						{"opportunity": "Beach Vacation Rentals"},
+						{"opportunity": "Properties for Summer Holidays"},
+						{"opportunity": "Rentals for Winter Vacations"},
+						{"opportunity": "Fishing Vacation Rentals"}
+					]
+					)
+	='\n'
+	
+	//Gallery
+	section.section
+		.range.range-condensed.range-xs-center(data-lightgallery="group")
+			ul.aside-gallery-wide
+				li
+					+gallery-item-wide({
+						imageName: 'single-service-2-320x320',
+						imageOriginal: 'gallery-original-12-800x1200'
+					})
+				li
+					+gallery-item-wide({
+						imageName: 'single-service-3-320x320',
+						imageOriginal: 'gallery-original-11-1200x800'
+					})
+				li
+					+gallery-item-wide({
+						imageName: 'single-service-4-320x320',
+						imageOriginal: 'gallery-original-13-1200x800'
+					})
+				li
+					+gallery-item-wide({
+						imageName: 'single-service-5-320x320',
+						imageOriginal: 'gallery-original-4-1200x800'
+					})
+				li
+					+gallery-item-wide({
+						imageName: 'single-service-6-320x320',
+						imageOriginal: 'gallery-original-8-1200x800'
+					})
+				li
+					+gallery-item-wide({
+						imageName: 'single-service-7-320x320',
+						imageOriginal: 'gallery-original-9-1200x800'
+					})
+	='\n'
+	
+	//Services
+	section.section.section-lg.bg-gray-lighter
+		.shell-wide
+			.range.range-xs-center.text-center
+				.cell-sm-12.cell-lg-10.cell-xl-6
+					h2 Other Services
+					.divider.divider-2
+			.range.range-30.range-xs-center.range-flex
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-5-570x340",
+						title: "Unfurnished Rentals",
+						link: "#",
+						exeption: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, accusamus nihil labore laborum aspernatur voluptates nostrum optio"
+					})
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-6-570x340",
+						title: "Apartments for Sale",
+						link: "#",
+						exeption: "Quasi, voluptatibus earum porro iste illum. Esse saepe delectus neque iste fugit, non, aliquid impedit odio eligendi alias a ab"
+					})
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-7-570x340",
+						title: "Commercial Real Estate",
+						link: "#",
+						exeption: "Dolorem placeat quis temporibus, repellendus distinctio harum sunt ducimus. Sequi recusandae nisi maiores veniam, sapiente earum odit"
+					})
+	='\n'
+	
+	//Testimonials
+	+testimonials({
+		classSection: 'bg-white'
+	})
+	='\n'
+	
+	// Page Footer
+	include ../sections/_footer-default

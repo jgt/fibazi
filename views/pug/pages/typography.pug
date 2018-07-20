@@ -1,0 +1,168 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'Pages'
+	- var pageName = 'Typography'
+
+block title
+	title=pageName
+
+block page
+	header
+	// Page Header
+	include ../sections/_header-default
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Choose Your Style", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": "Pages", "href": "#"},
+		2: {"title": pageName}
+	}
+	)
+	
+	section.section.section-demo.bg-white
+		.shell
+			.range.range-40.range-lg-justify
+				.cell-sm-10.cell-lg-8
+					ul.list.list-demonstration
+						li
+							h1 H1 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						li
+							h2 H2 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						li
+							h3 H3 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						li
+							h4 H4 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						li
+							h5 H5 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						li
+							h6 H6 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+				
+				.cell-sm-10.cell-lg-3
+					.heading-group
+						h1 H1
+						h2 H2 Heading
+						h3 H3 Heading
+						h4 H4 Heading
+						h5 H5 Heading
+						h6 H6 Heading
+	
+	section.section.section-demo.bg-white
+		.shell.shell-fluid
+			.range.range-40.range-lg-justify
+				.cell-sm-10.cell-lg-8
+					h2 Blockquote
+					+blockquote-default({
+						quote: "Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.",
+						authorName: "Walter Freeman",
+						authorPosition: "Web Developer, San Francisco"
+					})
+	
+	section.section.section-demo.bg-white
+		.shell.shell-fluid
+			.range.range-40.range-lg-justify
+				.cell-sm-10.cell-lg-8
+					h2 HTML Text Elements
+					.text-block
+						p
+							| #[span.text-bold This Text is Bold] #[span.text-italic Italic Text] #[span.mark Highlighted Text] #[a(href="#") Link] #[a.link-hover(href="#") Hover link] #[a.link-press(href="#") Press link]
+							| Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+							| #[span.text-underline This is a strikethrough text] #[span.text-strike This is an underlined text] #[span.tooltip-custom #[span(data-toggle='tooltip', data-placement='top', title='Tooltips Text') Tooltips]]
+	
+	section.section.section-demo.bg-white
+		.shell.shell-fluid
+			.range.range-40.range-lg-justify
+				.cell-sm-10.cell-lg-8
+					h2 Unordered List
+					p We specialize in a variety of services. Our aim is to deliver the top level of customer service based on your requests.
+					ul.list-marked
+						li Consulting
+						li Customer Service
+						li Innovation
+						li Management
+						li Ethics
+					p We hope that with our services you will receive the most personalized help in purchasing any kind of products you are looking for.
+	
+	section.section.section-demo.bg-white
+		.shell.shell-fluid
+			.range.range-40.range-lg-justify
+				.cell-sm-10.cell-lg-8
+					h2 Ordered List
+					p We specialize in a variety of services. Our aim is to deliver the top level of customer service based on your requests.
+					ul.list-index
+						li: span.list-index-counter Consulting
+						li: span.list-index-counter Customer Service
+						li: span.list-index-counter Innovation
+						li: span.list-index-counter Management
+						li: span.list-index-counter Ethics
+					p We hope that with our services you will receive the most personalized help in purchasing any kind of products you are looking for.
+	
+	section.section.section-demo.bg-white
+		.shell.shell-fluid
+			h2 Icon List
+			.range.range-30.text-center.text-lg-left
+				.cell-sm-4.text-center.text-md-left
+					+blurb-left({
+						iconClass: "mdi mdi-city",
+						title: "Best Service",
+						titleLink: "#",
+						content: "Our mission is to attract and retain customers by providing Best in Class solutions and fostering a profitable, disciplined culture of safety, service, and trust."
+					})
+				.cell-sm-4.text-center.text-md-left
+					+blurb-left({
+						iconClass: "mdi mdi-certificate",
+						title: "Reputation",
+						titleLink: "#",
+						content: "We have established a strong presence in the industry. Our award-winning services earn a reputation for quality and excellence that few can rival."
+					})
+				
+				.cell-sm-4.text-center.text-md-left
+					+blurb-left({
+						iconClass: "mdi mdi-cellphone-android",
+						title: "Safety & Security",
+						titleLink: "#",
+						content: "Safety for our employees, customers and the community we work with will always remain our primary focus in all the policies, procedures and programs."
+					})
+	
+	section.section.section-demo.bg-white
+		.shell.text-center.text-lg-left
+			.range
+				.cell-sm-12.cell-md-10.cell-lg-8
+					h2 Image centered
+					.section-image.section-image-center
+						.img-wraper
+							+jpg("typography-1-770x450")
+						.text-wrapper
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience.
+	
+	section.section.section-demo.bg-white
+		.shell
+			.range
+				.cell-sm-12.cell-md-10.cell-lg-8
+					h2 Image left
+					.section-image
+						.img-wraper
+							+jpg("typography-2-370x230")
+						.text-wrapper
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+	
+	
+	section.section.section-demo.bg-white
+		.shell
+			.range
+				.cell-sm-12.cell-md-10.cell-lg-8
+					h2 Image right
+					.section-image.section-image-right
+						.img-wraper
+							+jpg("typography-2-370x230")
+						.text-wrapper
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+	
+	// Page Footer
+	include ../sections/_footer-default

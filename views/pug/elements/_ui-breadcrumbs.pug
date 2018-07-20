@@ -1,0 +1,30 @@
+//- Breadcrumbs
+
+//- imgPath - path to image
+//- pageTitle - Page title
+//- breadcrumbs - obj of breadcrumbs items
+
+mixin breadcrumb-classic(imgPath, pageTitle, pageSubtitle, variant, breadcrumbs)
+	section.section.section-bredcrumbs
+		.context-dark.breadcrumb-wrapper(class=imgPath)
+			.shell-wide
+				.range.range-center
+					.cell-xxl-7
+						if (variant)
+							h5=pageSubtitle
+							h1.title=pageTitle
+							.divider.divider-3
+						else
+							h5=pageTitle
+							h1.title=pageSubtitle
+							.divider.divider-3
+		.breadcrumbs-custom
+			.shell-wide
+				ol.breadcrumbs
+					each link, index in breadcrumbs
+						if (breadcrumbs[parseInt(index) + 1] )
+							li
+								a(href=link.href)= link.title
+						else
+							li
+								= link.title

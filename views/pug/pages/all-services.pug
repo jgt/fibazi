@@ -1,0 +1,101 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_testimonials
+
+block variables
+	- var activeCategory = 'Services'
+	- var pageName = 'All Services'
+
+block title
+	title=pageName
+
+block page
+	// Page Header
+	include ../sections/_header-default
+	='\n'
+	
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "What We Do", true,
+	{
+		0: {"title": "Home", "href": "./"},
+		1: {"title": pageName}
+	}
+	)
+	='\n'
+	
+	//A Few Words About Us
+	section.section.bg-white
+		.range.range-xs-center
+			.cell-sm-10.cell-lg-6.cell-image
+				.cell-image-wrap
+					+jpg("services-1-945x588")
+			.cell-sm-10.cell-lg-6
+				.section-lg
+					.shell-fluid
+						.range.range-xs-center
+							.cell-sm-10.cell-xl-8
+								h2 A Few Words About Us
+								.divider.divider-2
+								p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi blanditiis quos ullam tempora beatae libero, reiciendis cupiditate consequatur, inventore asperiores, quasi possimus, similique praesentium. Quis quod tempora unde perspiciatis aliquam!Mollitia voluptatum repellat voluptate ea, quos deleniti fuga dolor consectetur, eligendi fugiat doloribus sequi.
+								a.button.button-primary(href="about-us.html") Learn more
+	='\n'
+	
+	//Services
+	section.section.section-lg.bg-gray-lighter
+		.shell-wide
+			.range.range-xs-center.text-center
+				.cell-sm-12.cell-lg-10.cell-xl-6
+					h2 Services
+					.divider.divider-2
+			.range.range-30.range-xs-center.range-flex
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-2-570x340",
+						title: "Vacation Rentals",
+						link: "single-service.html",
+						exeption: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, accusamus nihil labore laborum aspernatur voluptates nostrum optio"
+					})
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-3-570x340",
+						title: "Roommate Share",
+						link: "single-service.html",
+						exeption: "Voluptatum deserunt fugiat porro quisquam voluptatibus reprehenderit ducimus voluptate eligendi repellendus dolore, harum aliquid"
+					})
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-4-570x340",title: "Corporate Apartments",
+						link: "single-service.html",
+						exeption: "Sint aut, nam quia aliquid saepe excepturi esse explicabo, tenetur perspiciatis praesentium, sed eius, soluta commodi ipsa nesciunt"
+					})
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-5-570x340",
+						title: "Unfurnished Rentals",
+						link: "single-service.html",
+						exeption: "Perferendis, assumenda earum mollitia necessitatibus ipsum fugit perspiciatis accusantium, quidem natus, voluptatibus rem excepturi"
+					})
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-6-570x340",
+						title: "Apartments for Sale",
+						link: "single-service.html",
+						exeption: "Dolorem placeat quis temporibus, repellendus distinctio harum sunt ducimus. Sequi recusandae nisi maiores veniam, sapiente earum"
+					})
+				.cell-sm-6.cell-lg-4
+					+service({
+						imageName: "services-7-570x340",
+						title: "Commercial Real Estate",
+						link: "single-service.html",
+						exeption: "Atque provident assumenda officia nemo animi dolore minima eum expedita. Neque vitae soluta illo eligendi, amet a eos ipsa harum"
+					})
+	='\n'
+	
+	//Testimonials
+	+testimonials({
+		classSection: 'bg-white'
+	})
+	='\n'
+	
+	// Page Footer
+	include ../sections/_footer-default

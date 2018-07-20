@@ -1,0 +1,36 @@
+mixin testimonials(obj)
+
+	section.section.section-lg(class= obj.classSection)
+		.shell-wide.text-center
+			.range.range-xs-center.range-30
+				.cell-sm-12.cell-lg-10.cell-xl-6
+					h2 Testimonials
+					.divider.divider-2
+			.range.range-xs-center
+				.cell-sm-12.cell-lg-10.cell-xl-8
+					// Owl Carousel
+					.owl-carousel.owl-carousel-1(data-autoplay='true', data-items='1', data-dots='true' data-nav='true' data-stage-padding='0', data-loop='true', data-margin='0', data-mouse-drag="false")
+						.owl-item
+							+blockquote-default({
+								quoteClass: "quote-big",
+								quote: "I have just bought an apartment in LA thanks to you and your agents. Everything went smooth and easy, the price was quite affordable, and I’m sure I will use your services again in the future. I recommend Real Estate to everyone looking for a reliable real estate agency.",
+								authorImg: "testimonials-2-95x95",
+								authorName: "Christine Walters",
+								authorPosition: "Designer, New York"
+							})
+						.owl-item
+							+blockquote-default({
+								quoteClass: "quote-big",
+								quote: "I have recently sold my rental property in Nelson via Real Estate. Everything about the sale was made seamless by your team. The communication was extremely good, you gave me great advice about what was necessary to expedite the sale and what wasn't. Thank you!",
+								authorImg: "testimonials-1-95x95",
+								authorName: "Walter Freeman",
+								authorPosition: "Web Developer, San Francisco"
+							})
+						.owl-item
+							+blockquote-default({
+								quoteClass: "quote-big",
+								quote: "I really appreciate your time and expertise in helping me find and buy my current home in Seattle, WA. Hope we can do business again in the future and I will recommend you to family and friends. Thank you for the free gifts and bonuses, I was thrilled to receive them!",
+								authorImg: "testimonials-3-95x95",
+								authorName: "Roger Barrett",
+								authorPosition: "Manager, Chicago"
+							})

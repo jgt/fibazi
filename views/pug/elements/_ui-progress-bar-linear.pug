@@ -1,0 +1,11 @@
+//- progress - object{progress}
+mixin progress-bar-linear(progress)
+	//- Linear progress bar
+	.progress-linear(class=progress.class)
+		.progress-header
+			div
+				span= progress.title
+			div
+				span.text-bold.progress-value= progress.valueTo
+		.progress-bar-linear-wrap
+			.progress-bar-linear
