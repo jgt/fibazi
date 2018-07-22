@@ -1,4 +1,5 @@
 const express = require("express");
+const email = require("../controllers/sendEmail");
 const route = express.Router();
 
 route.get("/", function(req, res){
@@ -8,5 +9,11 @@ route.get("/", function(req, res){
 route.get("/blog", function(req, res){
 	res.render("pug/pages/classic-blog");
 });
+
+route.get("/contact", function(req, res){
+	res.render("pug/pages/contacts");
+});
+
+route.post("/prueba", email.sendEmail);
 
 module.exports = route;

@@ -1333,7 +1333,7 @@
 
 								$.ajax({
 									method: "POST",
-									url: "bat/reCaptcha.php",
+									url: "http://localhost:5000/contact",
 									data: {'g-recaptcha-response': captchaToken},
 									async: false
 								})

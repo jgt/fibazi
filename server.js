@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
 const route_app = require("./routes/route_app");
 
 //Se inicializa el objecto express
@@ -15,6 +16,8 @@ mongoose.connect(db)
 	});
 
 //Middleware
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.json());
 app.set("view engine", "pug");
 app.use(express.static('public'));
 
