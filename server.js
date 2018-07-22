@@ -5,9 +5,10 @@ const route_app = require("./routes/route_app");
 
 //Se inicializa el objecto express
 const app = express();
-
+//Variable para la conexion BD
 const db = require("./config/key").mongoUri;
 
+//Conexion a la base de datos
 mongoose.connect(db)
 	.then(function(){
 		console.log("Mongoose connected");
@@ -26,7 +27,7 @@ app.use(express.static('public'));
 app.use(route_app);
 
 //Se pone el puerto del servidor
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 
 app.listen(port, function(){

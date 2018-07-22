@@ -1,7 +1,7 @@
 extends  ../_skeleton
 
 block variables
-	- var pageName = '404'
+	- var pageName = 'Success'
 
 block title
 	title=pageName
@@ -12,7 +12,7 @@ block page
 			// Page Header
 			header.section.page-header
 				.rd-navbar-brand.brand
-					a.brand-logo(href='index.html')
+					a.brand-logo(href='/')
 						+png(logoInverse)
 			='\n'
 			
@@ -21,12 +21,12 @@ block page
 				.shell
 					.range.range-xs-center
 						.cell-sm-10.cell-lg-7
-							p.text-extra-large.page-title 404
+							p.text-extra-large.page-title Enviado
 							.divider.divider-2
-							h1.page-subtitle Page Not Found
+							h1.page-subtitle Nos comunicaremos con usted en las proximas 24 horas.
 							.group-button-xl
-								a.button.button-primary(href='index.html') Back to home page
-								a.button.button-white-outline.button-white-outline-border(href='locations.html') Contact us
+								a.button.button-primary(href='/') Fibazi
+								a.button.button-white-outline.button-white-outline-border(href='contact') Contactanos
 			='\n'
 			
 			// Page Footer

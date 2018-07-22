@@ -27,13 +27,13 @@ block page
 					.divider.divider-2
 					p You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit our office personally.
 					// RD Mailform
-					form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='forms', method='POST', action='/prueba')
+					form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='forms', method='POST', action='/contact')
 						.form-wrap.form-wrap-validation
 							label.form-label.form-label-outside(for="forms-name-1") Nombre
-							input#forms-name-1.form-input(type="text" name="name" data-constraints='@Required')
+							input#forms-name-1.form-input(type="text" name="name" data-constraints='@Required' required = 'required')
 						.form-wrap.form-wrap-validation
 							label.form-label.form-label-outside(for="forms-email-1") Correo
-							input#forms-email-1.form-input(type="email" name="email" data-constraints="@Email @Required")
+							input#forms-email-1.form-input(type="email" name="email" data-constraints="@Email @Required" required = 'required')
 						.form-button
 							button(type="submit").button.button-block.button-primary Enviar
 	='\n'

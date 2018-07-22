@@ -14,6 +14,6 @@ route.get("/contact", function(req, res){
 	res.render("pug/pages/contacts");
 });
 
-route.post("/prueba", email.sendEmail);
+route.post("/contact", email.sendEmail);
 
 module.exports = route;

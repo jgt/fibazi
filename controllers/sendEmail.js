@@ -17,7 +17,7 @@ exports.sendEmail = function(req, res){
 	};
 
 	transporter.sendMail(mailOptions, function(err, info){
-		if(err) res.send(500, err.message);
-		res.status(200).send("el correo ha sido enviado");
+		if(err) res.render("pug/pages/503-page");
+		res.render("pug/pages/404-page");
 	});
 }
