@@ -4,17 +4,23 @@ const mg = require("nodemailer-mailgun-transport");
 
 exports.sendEmail = function(req, res){
 
-	const transporter = nodemailer.createTransport(mg(auth));
+	const transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'jair.galvis30@gmail.com',
+			pass: 'jgt3556792'
+		}
+	});
 
 	const mailOptions = {
-		from: "jgt08@hotmail.com",
-		to: 'jair.galvis30@gmail.com',
+		from: "jair.galvis30@gmail.com",
+		to: req.body.email,
 		subject: 'Fibazi',
 		text: "hola mundo"
 	};
 
 	transporter.sendMail(mailOptions, function(err, info){
-		if(err) res.send(500, err.message);
-		res.status(200).jsonp(info);
+		if(err) res.render("pug/pages/503-page");
+		res.render("pug/pages/404-page");
 	});
 }

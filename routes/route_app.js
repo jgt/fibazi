@@ -3,8 +3,8 @@ const email = require("../controllers/sendEmail");
 const route = express.Router();
 
 route.get("/", function(req, res){
-	//res.render("pug/pages/index");
-	res.render("pug/pages/503-page");
+	res.render("pug/pages/index");
+	//res.render("pug/pages/503-page");
 });
 
 route.get("/blog", function(req, res){
