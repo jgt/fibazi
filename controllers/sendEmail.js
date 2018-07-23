@@ -1,23 +1,20 @@
 const nodemailer = require("nodemailer");
+const auth = require("../config/mailgun");
+const mg = require("nodemailer-mailgun-transport");
 
 exports.sendEmail = function(req, res){
-	const transporter = nodemailer.createTransport({
-		service: 'Hotmail',
-		auth: {
-			user: 'jgt08@hotmail.com',
-			pass: 'jgt3556792'
-		}
-	});
+
+	const transporter = nodemailer.createTransport(mg(auth));
 
 	const mailOptions = {
-		from: req.body.email,
+		from: "jgt08@hotmail.com",
 		to: 'jair.galvis30@gmail.com',
 		subject: 'Fibazi',
-		text: req.body.name
+		text: "hola mundo"
 	};
 
 	transporter.sendMail(mailOptions, function(err, info){
-		if(err) res.render("pug/pages/503-page");
-		res.render("pug/pages/404-page");
+		if(err) res.send(500, err.message);
+		res.status(200).jsonp(info);
 	});
 }

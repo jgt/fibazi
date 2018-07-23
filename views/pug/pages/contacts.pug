@@ -30,10 +30,10 @@ block page
 					form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='forms', method='POST', action='/contact')
 						.form-wrap.form-wrap-validation
 							label.form-label.form-label-outside(for="forms-name-1") Nombre
-							input#forms-name-1.form-input(type="text" name="name" data-constraints='@Required' required = 'required')
+							input#forms-name-1.form-input(type="text" name="name" data-constraints='@Required')
 						.form-wrap.form-wrap-validation
 							label.form-label.form-label-outside(for="forms-email-1") Correo
-							input#forms-email-1.form-input(type="email" name="email" data-constraints="@Email @Required" required = 'required')
+							input#forms-email-1.form-input(type="email" name="email" data-constraints="@Email @Required")
 						.form-button
 							button(type="submit").button.button-block.button-primary Enviar
 	='\n'
