@@ -1,9 +1,6 @@
 const nodemailer = require("nodemailer");
-const auth = require("../config/mailgun");
-const mg = require("nodemailer-mailgun-transport");
 
 exports.sendEmail = function(req, res){
-
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {

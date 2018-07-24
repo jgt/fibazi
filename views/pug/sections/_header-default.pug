@@ -29,9 +29,6 @@ header.section.page-header
 								span
 									a.link(href="#") Login
 									=" "
-									span |
-									=" "
-									a.link(href="#") Registration
 							li.rd-navbar-info
 								.icon.mdi.mdi-email-open
 								a.link(href="mailto:#") info@demolink.org
@@ -68,16 +65,4 @@ header.section.page-header
 						include ../_navigation
 
 					// RD Navbar Panel Right
-					.rd-navbar-cell.rd-navbar-panel-right
-						// Search toggle
-						button.search-toggle( data-rd-navbar-toggle='.rd-navbar-search' )
-							span.toggle-icon
-
-						// Search
-						.rd-navbar-search
-							form.rd-search(action="search-results.html" data-search-live="rd-search-results-live" method="GET")
-								.form-wrap
-									label.form-label(for="rd-navbar-search-form-input" class="form-label") Type and hit enter...
-									input(class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off")
-									button.button-submit.fa.fa-search(type="submit")
-									#rd-search-results-live.rd-search-results-live
+					
