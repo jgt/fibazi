@@ -23,10 +23,10 @@ html(lang='en')
 					h1 Fibazi
 				.login-form
 					h2 login now
-					form(action='#', method='get')
+					form(action='/login', method='POST')
 						span
 							i.fa.fa-user-o(aria-hidden='true')
-						input(type='text', name='username', placeholder='enter your name', required='')
+						input(type='text', name='email', placeholder='enter your email', required='')
 						span
 							i.fa.fa-unlock-alt(aria-hidden='true')
 						input(type='password', name='password', placeholder='enter your password', required='')
