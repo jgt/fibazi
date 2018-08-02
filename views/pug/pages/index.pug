@@ -68,11 +68,10 @@ block page
 					.shell-fluid
 						.range.range-xs-center
 							.cell-sm-10.cell-xl-8
-								h2 About Us
+								h2 Quienes somos
 								.divider.divider-2
-								p.big Real Estate is one of the biggest and the most reliable real estate agencies selling over 200,000 properties annually.
-								p Operating since 1999, Real Estate is the number one real estate company in North America. For over a decade we have helped people make their housing dreams a reality, and we are here to help you find your ideal home. Our agency service is rich in integrity and common sense, high in customer satisfaction.
-								a.button.button-primary(href="about-us.html") Learn More
+								p El Fideicomiso Bahía de Zihuatanejo es un Fideicomiso Público del Gobierno del Estado de Guerrero, que le corresponde, llevar a cabo la urbanización, lotificación y fraccionamiento de los terrenos fideicomitidos, así como efectuar la venta de los lotes y fraccionamientos, buscando satisfacer los requerimientos de la población e inversionistas. Así mismo, contribuir al desarrollo de proyectos turísticos sustentables que detonen el crecimiento	de Zihuatanejo de  Azueta; promoviendo la inversión, dando las facilidades de financiamiento para que la población y desarrolladores turísticos inviertan en el FIBAZI.
+								a.button.button-primary(href="about") Learn More
 			.cell-sm-4.cell-lg-6.cell-vertical-align
 				+video-box({
 					"background": "video-preview-3.jpg",
@@ -88,10 +87,10 @@ block page
 		.shell-wide
 			.range.range-xs-center.range-xs-middle.range-30
 				.cell-sm-10.cell-lg-6
-					h2 Offering a #[span.text-bold Superior Level] of Service
-					h4 Call us for a #[span.text-bold Free Consultation] at #[a(href='tel:#') 855-456-7634]
+					h2 Te ofrecemos #[span.text-bold lo que necesitas] 
+					h4 Comunicate con nostros #[span.text-bold Totalmente gratis] a #[a(href='#') (755) 554 21 17 ETX. 101]
 				.cell-sm-10.cell-lg-2.text-lg-right
-					a(href="#").button.button-lg.button-white-outline.button-white-outline-border contact us now
+					a(href="/contact").button.button-lg.button-white-outline.button-white-outline-border contactanos
 	='\n'
 	
 	// Hot Deals
@@ -264,48 +263,7 @@ block page
 					)
 	='\n'
 	
-	//Advantages
-	include ../sections/_advantages
-	='\n'
 	
-	//Advantages
-	section.section
-		.range.range-xs-center.range-condensed
-			.cell-sm-6.cell-lg-3
-				+lightbox({
-					bgImage: "home-1-center-1-480x350",
-					place: "Boston",
-					nameCenter: "Studio Apartments",
-					link: "locations.html"
-				})
-			.cell-sm-6.cell-lg-3
-				+lightbox({
-					bgImage: "home-1-center-2-480x350",
-					place: "Los Angeles",
-					nameCenter: "Avis Villa",
-					link: "locations.html"
-				})
-			.cell-sm-6.cell-lg-3
-				+lightbox({
-					bgImage: "home-1-center-3-480x350",
-					place: "San Francisco",
-					nameCenter: "Grand House",
-					link: "locations.html"
-				})
-			.cell-sm-6.cell-lg-3
-				+lightbox({
-					bgImage: "home-1-center-4-480x350",
-					place: "Chicago",
-					nameCenter: "White Apartments",
-					link: "locations.html"
-				})
-	='\n'
-	
-	//Testimonials
-	+testimonials({
-		classSection: 'bg-gray-lighter'
-	})
-	='\n'
 	
 	// Parallax section
 	+parallax({

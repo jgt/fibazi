@@ -1,13 +1,13 @@
 // RD Navbar Nav
 ul.rd-navbar-nav
 	li(class=(activeCategory == 'Home' ? 'active' : ''))
-		a(href='./') Home
+		a(href='/') Inicio
 
 	li(class=(activeCategory == 'About' ? 'active' : ''))
 		a(href='#') Fibazi
 		// RD Navbar Dropdown
 		ul.rd-navbar-dropdown
-			//li: a(href='about-us.html') Historia
+			li: a(href='/about') Quienes somos
 			li: a(href='/sobreFibazi') Misión y Visión
 			li: a(href='/antecedentes') Antecedentes
 

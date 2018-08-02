@@ -22,6 +22,12 @@ route.get("/blog", function(req, res){
 route.get("/contact", function(req, res){
 	res.render("pug/pages/contacts");
 });
+
+//About as
+route.get("/about", function(req, res){
+	res.render("pug/pages/about-us");
+});
+
 //POST Contact
 route.post("/contact", email.sendEmail);
 
@@ -41,6 +47,8 @@ route.get("/antecedentes", function(req, res){
 route.get("/sobreFibazi", function(req, res){
 	res.render("pug/pages/aboutFibazi");
 });
+
+
 
 module.exports = function(passport){
 

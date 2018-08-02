@@ -2,11 +2,11 @@ extends  ../_skeleton
 
 //- Includes
 include ../elements/_ui-progress-bar-linear
-include ../sections/_testimonials
+include ../sections/_misionVision
 
 block variables
-	- var activeCategory = 'About'
-	- var pageName = 'About us'
+	- var activeCategory = 'Quienes somos'
+	- var pageName = 'Quienes somos'
 
 block title
 	title=pageName
@@ -16,11 +16,10 @@ block page
 	include ../sections/_header-default
 	='\n'
 	
-	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Overview & History", true,
+	+breadcrumb-classic('bg-image-breadcrumbs-1', pageName, "Conocenos", true,
 	{
-		0: {"title": "Home", "href": "./"},
-		1: {"title": "About", "href": "#"},
-		2: {"title": pageName}
+		0: {"title": "Inicio", "href": "/"},
+		1: {"title": "Quienes somos", "href": "#"}
 	}
 	)
 	='\n'
@@ -33,47 +32,21 @@ block page
 					.shell-fluid
 						.range.range-xs-center
 							.cell-sm-10.cell-xl-8
-								h2 About Us
+								h2 Quienes somos
 								.divider.divider-2
-								p.big Laborum corrupti, doloremque, ut inventore, tempore consectetur esse saepe dignissimos doloribus consequuntur.
-								p Perferendis, assumenda earum mollitia necessitatibus ipsum fugit perspiciatis accusantium, quidem natus, voluptatibus rem excepturi quibusdam. Debitis in nihil, laborum voluptates autem mollitia esse laudantium, fuga saepe architecto nostrum fugit. Perspiciatis!
-								
-								+progress-bar-linear({
-									"class": "progress-secondary",
-									"title": "Commercial Properties",
-									"valueTo": "75"
-								})
-								
-								+progress-bar-linear({
-									"class": "progress-secondary",
-									"title": "Residential Properties",
-									"valueTo": "90"
-								})
-								
-								+progress-bar-linear({
-									"class": "progress-secondary",
-									"title": "Land",
-									"valueTo": "50"
-								})
+								p El Fideicomiso Bahía de Zihuatanejo, es un Fideicomiso Público del Gobierno del Estado de Guerrero, con personalidad jurídica y patrimonio propio; tiene como finalidad, dotar de infraestructura urbana, lotificación y fraccionamiento de terrenos fideicomitidos, así como efectuar la venta de lotes urbanizados para el desarrollo turístico e interés social. La administración de este Organismo, está a cargo de un Comité Técnico y de un Director General, conforme a lo establecido en el artículo 12 de la Ley Número 690 de Entidades Paraestatales del Estado de Guerrero.
 								
 								a.button.button-primary(href="#") Learn more
 			.cell-sm-10.cell-lg-5.cell-image
 				.cell-image-wrap
 					+jpg("about-us-1-800x917")
-	='\n'
-	
-	// Counters
-	include ../sections/_counters
+
+		section.section.section-lg.bg-white.text-center
+				            
 	='\n'
 	
 	//Advantages
 	include ../sections/_advantages
-	='\n'
-	
-	//Testimonials
-	+testimonials({
-		classSection: 'bg-gray-lighter'
-	})
 	='\n'
 	
 	// Page Footer

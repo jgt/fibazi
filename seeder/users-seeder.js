@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://fibazi:jgt3556792@ds141641.mlab.com:41641/fibazi');
+mongoose.connect('mongodb://localhost/fibazi');
 
 const users = [
 	new User({
