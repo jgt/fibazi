@@ -1,7 +1,9 @@
 const Solicitud = require("../models/solicitud");
 const User = require("../models/user");
 const Pagos = require("../models/pagosGarantia");
-const escpos = require('escpos');
+const Printer = require('ipp-printer')
+const fs = require('fs')
+
 
 exports.solc = function(req, res){
 	User.findOne({email: req.user.email}, function(err, user){
@@ -61,17 +63,6 @@ exports.guardarPagos = function(req, res){
 
 	Paid.save(function(err){
 		if(err) return res.render("site/503-page");
-		const networkDevice = new escpos.Network('169.254.160.245');
-		const printer = new escpos.Printer(networkDevice);
-
-		networkDevice.open(() => {
-		  printer
-		    .text('Hello World')
-		    .feed()
-		    .cut()
-		    .close()
-		});
-		
 		res.render("site/pagosGarantia", {solicitud: Paid});
 	});
 }

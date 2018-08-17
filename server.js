@@ -4,7 +4,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const logged = require("./middleware/logged");
 const session = require("express-session");
-const cookieParser = require("cookie-parser");
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const route_app = require("./routes/route_app")(passport);
@@ -40,12 +39,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(morgan('dev'));
-app.use(cookieParser('secret'));
 app.use(session({
 	resave: true,
 	saveUninitialized: true,
 	secret: 'work hard',
-	cookie: { maxAge: 120000000 }
 }));
 app.use(flash());
 
