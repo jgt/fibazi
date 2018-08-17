@@ -6,12 +6,7 @@ const email = require("../controllers/sendEmail");
 
 //Construccion
 route.get("/", function(req, res){
-	res.render("pug/pages/503-page");
-});
-
-//Index
-route.get('/index', function(req, res){
-	res.render("pug/pages/index");
+	res.render("site/index");
 });
 
 //Blog
@@ -20,32 +15,32 @@ route.get("/blog", function(req, res){
 });
 //Contact
 route.get("/contact", function(req, res){
-	res.render("pug/pages/contacts");
-});
-
-//About as
-route.get("/about", function(req, res){
-	res.render("pug/pages/about-us");
+	res.render("site/contacts");
 });
 
 //POST Contact
 route.post("/contact", email.sendEmail);
 
+//About as
+route.get("/about", function(req, res){
+	res.render("site/about-us");
+});
+
 //Login
 route.get("/login", function(req, res){
-	res.render("login/index");
+	res.render("site/login");
 });
 route.get('/logout', function(req, res){
 	req.logout();
-	res.redirect('/');
+	res.redirect('/login');
 });
 
 //Sobre Fibazi
 route.get("/antecedentes", function(req, res){
-	res.render("pug/pages/antecedentes")
+	res.render("site/testimonials")
 });
 route.get("/sobreFibazi", function(req, res){
-	res.render("pug/pages/aboutFibazi");
+	res.render("site/aboutFibazi");
 });
 
 
@@ -54,11 +49,9 @@ module.exports = function(passport){
 
 	route.post('/login', passport.authenticate('local', {
 		failureRedirect: '/login',
-		successRedirect: '/logged'
+		successRedirect: '/solicitud'
 
-		}),function(req, res){
-			res.redirect('/');
-		});
+	}));
 
 	return route;
 }

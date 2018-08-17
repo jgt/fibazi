@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="wide smoothscroll wow-animation" lang="en">
+  <head>
+    <!-- Site Title-->
+    <title>Inicio de sesión</title>
+    <% include ../head/head %>
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page preloader-->
+      <div class="page-loader">
+        <div>
+          <div class="page-loader-body">
+            <div class="cssload-loader">
+              <div class="cssload-inner cssload-one"></div>
+              <div class="cssload-inner cssload-two"></div>
+              <div class="cssload-inner cssload-three"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Page Header-->
+      <header class="section page-header"></header>
+      <section class="section section-bredcrumbs">
+        <div class="context-dark breadcrumb-wrapper bg-image-breadcrumbs-1">
+          <div class="shell-wide">
+            <div class="range range-center">
+              <div class="cell-xxl-7">
+                <h5>Entrar al sistema</h5>
+                <h1 class="title">Inicio de sesión</h1>
+                <div class="divider divider-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom">
+          <div class="shell-wide">
+            <ol class="breadcrumbs">
+              <li><a href="./">Inicio</a></li>
+              <li>Ingresar al sistemas</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- Login form-->
+      <section class="section section-lg bg-white">
+        <div class="shell text-center">
+          <h2>Ingresar al sistemas</h2>
+          <div class="divider divider-2"></div>
+          <div class="range range-xs-center">
+            <div class="cell-sm-8 cell-md-6 cell-lg-4">
+              <!-- RD Mailform-->
+              <form class="rd-mailform text-left" action='/login', method='POST'>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-login-name">Email</label>
+                  <input class="form-input" id="forms-login-name" type="text" name="email" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-login-password">Contraseña</label>
+                  <input class="form-input" id="forms-login-password" type="password" name="password" data-constraints="@Required">
+                </div>
+                <button class="button button-block button-primary" type="submit">Entrar</button>
+              </form>
+          </div>
+        </div>
+      </section>
+      <!-- Page Footer-->
+      <footer>
+       <% include ../footer/footer %>
+      </footer>
+    </div>
+    <!-- PANEL-->
+    <!-- END PANEL-->
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

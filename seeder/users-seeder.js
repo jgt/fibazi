@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/fibazi');
+mongoose.connect('mongodb://fibazi:jgt3556792@ds141641.mlab.com:41641/fibazi');
 
 const users = [
 	new User({
@@ -13,7 +13,12 @@ const users = [
 		nombre: "angela",
 		email: "angela@hotmail.com",
 		password: "3556792"
-	})
+	}),
+	new User({
+		nombre: "pepe",
+		email: "pepe@hotmail.com",
+		password: "3556792"
+	}),
 ];
 
 var done = 0;

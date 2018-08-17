@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="wide smoothscroll wow-animation" lang="en">
+  <head>
+    <!-- Site Title-->
+    <title>Solicitud</title>
+    <% include ../head/head %>
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page preloader-->
+      <div class="page-loader">
+        <div>
+          <div class="page-loader-body">
+            <div class="cssload-loader">
+              <div class="cssload-inner cssload-one"></div>
+              <div class="cssload-inner cssload-two"></div>
+              <div class="cssload-inner cssload-three"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Page Header-->
+      <header class="section page-header"></header>
+      <section class="section section-bredcrumbs">
+        <div class="context-dark breadcrumb-wrapper bg-image-breadcrumbs-1">
+          <div class="shell-wide">
+            <div class="range range-center">
+              <div class="cell-xxl-7">
+                <h5>Registra una solicitud</h5>
+                <h1 class="title">Solicitudes</h1>
+                <div class="divider divider-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom">
+          <div class="shell-wide">
+            <ol class="breadcrumbs">
+              <li><a href="./">Inicio</a></li>
+              <li><a href="/buscador-garantia">Buscar por folio</a></li>
+              <li><a href="/logout">Salir</a></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- Login form-->
+      <section class="section section-lg bg-white">
+        <div class="shell">
+          <h2>Solicitud</h2>
+          <div class="divider divider-2"></div>
+              <!-- RD Mailform-->
+              <div class="row">
+                  
+                <div class="col-md-8 order-md-1">
+                  <form class="needs-validation" action="/solicitud" method="POST" novalidate>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="firstName">Nombres</label>
+                        <input type="text" class="form-control" name="nombres" required>
+                        <div class="invalid-feedback">
+                            Este valor es requerido.
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName">Apellido Paterno</label>
+                        <input type="text" class="form-control" name="apellidoP" required>
+                        <div class="invalid-feedback">
+                          Este valor es requerido.
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName">Apellido Materno</label>
+                        <input type="text" class="form-control" name="apellidoM" required>
+                        <div class="invalid-feedback">
+                          Este valor es requerido.
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName">Estado Civil</label>
+                        <input type="text" class="form-control" name="estadoCivil" required>
+                        <div class="invalid-feedback">
+                          Este valor es requerido.
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="state">Sexo</label>
+                        <select class="custom-select d-block w-100" name="sexo" required>
+                          <option>Femenino</option>
+                          <option>Masculino</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName">Edad</label>
+                        <input type="text" class="form-control" name="edad" required>
+                        <div class="invalid-feedback">
+                          Este valor es requerido.
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName">Telefono Casa</label>
+                        <input type="text" class="form-control" name="telCasa" required>
+                        <div class="invalid-feedback">
+                          Este valor es requerido.
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName">Celular</label>
+                        <input type="text" class="form-control" name="celular" required>
+                        <div class="invalid-feedback">
+                          Este valor es requerido.
+                        </div>
+                      </div>
+                    <div class="mb-3">
+                      <label for="address">Colonia</label>
+                      <input type="text" class="form-control" name="colonia" placeholder="1234 Main St" required>
+                      <div class="invalid-feedback">
+                        Este valor es requerido.
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="address">Calle</label>
+                      <input type="text" class="form-control" name="calle" placeholder="1234 Main St" required>
+                      <div class="invalid-feedback">
+                        Este valor es requerido.
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="address">Manzana</label>
+                      <input type="text" class="form-control" name="manzana" placeholder="1234 Main St" required>
+                      <div class="invalid-feedback">
+                        Este valor es requerido.
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="address">Lote</label>
+                      <input type="text" class="form-control" name="lote" placeholder="1234 Main St" required>
+                      <div class="invalid-feedback">
+                        Este valor es requerido.
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="address">Casa</label>
+                      <input type="text" class="form-control" name="casa" placeholder="1234 Main St" required>
+                      <div class="invalid-feedback">
+                        Este valor es requerido.
+                      </div>
+                    </div>
+                    <hr class="mb-4">
+
+                    <h4 class="mb-3">Datos del Conyuge</h4>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="cc-name">Nombre del Conyuge</label>
+                        <input type="text" class="form-control" name="conyuge" placeholder="">
+                        <div class="invalid-feedback">
+                          Este valor es opcional
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="cc-number">Telefono de Referencia</label>
+                        <input type="text" class="form-control" name="telReferencia" placeholder="">
+                        <div class="invalid-feedback">
+                          Este valor es opcional
+                        </div>
+                      </div>
+                    </div>
+                    
+                      <h4 class="mb-3">Dependientes Economicos</h4>
+                      <div class="row">
+                        <div class="col-md-6 mb-3">
+                          <label for="cc-expiration">Nombre 1</label>
+                          <input type="text" class="form-control" name="economicos" placeholder="">
+                          <div class="invalid-feedback">
+                            Este valor es opcional
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="cc-cvv">Nombre 2</label>
+                          <input type="text" class="form-control" name="economicos" placeholder="">
+                          <div class="invalid-feedback">
+                            Este valor es opcional
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="cc-cvv">Observaciones</label>
+                          <textarea class="form-control" rows="5" name="observaciones"></textarea>
+                          <div class="invalid-feedback">
+                            Este valor es opcional
+                          </div>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Imprimir Solicitud</button>
+                  </form>
+                </div>
+              </div>
+                
+      </section>
+      <!-- Page Footer-->
+      <footer>
+       <% include ../footer/footer %>
+      </footer>
+    </div>
+    <!-- PANEL-->
+    <!-- END PANEL-->
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

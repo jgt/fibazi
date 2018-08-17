@@ -1,24 +1,31 @@
 const express = require("express");
-const route_api = express.Router();
 const logged = require("../middleware/logged");
-const User = require("../models/user");
+const Solicitud = require("../models/solicitud");
 const api = express.Router();
 
-api.use('/logged', function(req ,res, next){
-	User.findOne({email: req.user.email}, function(err, usuario){
-		res.locals.user = usuario;
-		next();
+//Controllers
+const user = require("../controllers/users");
+const solicitud = require("../controllers/solicitud");
+
+//Buscador Garantia
+api.get("/buscador-garantia", logged, function(req, res){
+	Solicitud.count({}, function(err, count){
+		res.render("site/buscadorGarantia", {count: count});
 	})
 });
 
-//Authenticate
-api.get('/logged', logged, function(req, res){
-	res.render('pug/pages/404-page');
+//Pagos en garantia
+api.get("/pagos-garantia", logged, function(req, res){
+	res.render("site/pagosGarantia");
+});	
+api.post("/pagos-garantia", logged, solicitud.findSolc);
+api.post("/pagos-save", logged, solicitud.guardarPagos);
+
+//Solicitud
+api.get('/solicitud', logged, function(req, res){
+	res.render('site/solicitud');
 });
 
-//Error vista
-api.get('/error', logged, function(req, res){
-	res.render('pug/pages/503-page');
-});
+api.post("/solicitud", logged, solicitud.solc);
 
 module.exports = api;

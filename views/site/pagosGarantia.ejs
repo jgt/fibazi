@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="wide smoothscroll wow-animation" lang="en">
+  <head>
+    <!-- Site Title-->
+    <title>Pagos Con Garantia</title>
+    <% include ../head/head %>
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page preloader-->
+      <div class="page-loader">
+        <div>
+          <div class="page-loader-body">
+            <div class="cssload-loader">
+              <div class="cssload-inner cssload-one"></div>
+              <div class="cssload-inner cssload-two"></div>
+              <div class="cssload-inner cssload-three"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Page Header-->
+      <header class="section page-header"></header>
+      <section class="section section-bredcrumbs">
+        <div class="context-dark breadcrumb-wrapper bg-image-breadcrumbs-1">
+          <div class="shell-wide">
+            <div class="range range-center">
+              <div class="cell-xxl-7">
+                <h5>Pagos con Garantia</h5>
+                <h1 class="title">Pagos con Garantia</h1>
+                <div class="divider divider-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom">
+          <div class="shell-wide">
+            <ol class="breadcrumbs">
+              <li><a href="./">Inicio</a></li>
+              <li><a href="/solicitud">Crear Solicitud</a></li>
+              <li><a href="/logout">Salir</a></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- Login form-->
+      <section class="section section-lg bg-white">
+        <div class="shell shell-wide">
+          <div class="range range-40 range-center">
+            <div class="cell-sm-10 cell-md-8 cell-lg-7 cell-xl-6 cell-xl-preffix-1">
+              <h2>Introduce el numero de folio</h2>
+              <div class="divider divider-2"></div>
+              <% if(locals.messages){ %>
+                <div class="alert alert-error" role="alert">
+                    <strong>Error! porfavor rellena todos los datos del formulario</strong>
+                </div>
+              <% } %>
+              <p>Este formato se guarda automaticamente en el sistema.</p>
+              <form class="form-inline mt-2 mt-md-0" action="/pagos-garantia" method="POST">
+                <input class="form-control mr-sm-2" type="text" placeholder="introduce numero de folio" name="folio" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
+              </form>
+              <!-- RD Mailform-->
+              <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="forms" method="POST" action="/pagos-save">
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-name-1">Recibos de:</label>
+                  <input class="form-input" id="forms-name-1" type="text" name="nombre" value="<%=solicitud.nombres%>" readonly="readonly" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-name-1">Colonia</label>
+                  <input class="form-input" id="forms-name-1" type="text" name="colonia" value="<%=solicitud.colonia%>" readonly="readonly" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-name-1">Clave de Ubicación</label>
+                  <input class="form-input" id="forms-name-1" type="text" name="folio" value="<%=solicitud.folio%>" readonly="readonly" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-email-1">Costo de servicios</label>
+                  <input class="form-input" id="forms-email-1" type="text" name="costo" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-email-1">Pago de</label>
+                  <input class="form-input" id="forms-email-1" type="text" name="pago" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-email-1">Fecha</label>
+                  <input class="form-input" id="forms-email-1" type="date" name="fecha" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <input class="form-input" id="forms-name-1" type="hidden" value="<%=solicitud.id%>" readonly="readonly" name="solicitudId">
+                </div>
+                <div class="form-button">
+                  <button class="button button-block button-primary" type="submit">Imprimir pagos</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Page Footer-->
+      <footer>
+       <% include ../footer/footer %>
+      </footer>
+    </div>
+    <!-- PANEL-->
+    <!-- END PANEL-->
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
