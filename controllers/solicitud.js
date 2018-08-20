@@ -80,7 +80,20 @@ exports.guardarPagos = function(req, res){
 			'\n\n',
 			'\n\n',
 			'\n\n',
-			'COLONIA: '+Paid.colonia+ 'CLAVE DE UBUCACION: '+Paid.folio+ 'RECIBO DE: '+Paid.nombre+ 'COSTO DEL SERVICIO: '+Paid.costo+ 'PAGO DE : '+Paid.pago+ 'FECHA: '+Paid.fecha
+			'\n\n',
+			'\n\n',
+			'\n\n',
+			'COLONIA: '+Paid.colonia,
+			'\n\n',
+			'CLAVE DE UBUCACION: '+Paid.folio,
+			'\n\n',
+			'RECIBO DE: '+Paid.nombre,
+			'\n\n',
+			'COSTO DEL SERVICIO: '+Paid.costo,
+			'\n\n',
+			'PAGO DE : '+Paid.pago,
+			'\n\n',
+			'FECHA: '+Paid.fecha
 		]
 	};
 
