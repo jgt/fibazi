@@ -2,6 +2,7 @@ const Solicitud = require("../models/solicitud");
 const User = require("../models/user");
 const Pagos = require("../models/pagosGarantia");
 const PdfPrinter = require('pdfmake/src/printer');
+const escpos = require('escpos');
 const path =require("path");
 const fs = require('fs');
 
@@ -103,7 +104,15 @@ exports.guardarPagos = function(req, res){
 
 	Paid.save(function(err){
 		if(err) return res.render("site/503-page");
-		res.render('site/pagosGarantia', {solicitud: Paid});
+		//res.render('site/pagosGarantia', {solicitud: Paid});
 	});
+}
+
+exports.pagos = function(req, res){
+	var usb = new escpos.USB.findPrinter();
+	console.log(usb);
+
+	
+
 }
 

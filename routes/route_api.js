@@ -19,7 +19,7 @@ api.get("/pagos-garantia", logged, function(req, res){
 	res.render("site/pagosGarantia");
 });	
 api.post("/pagos-garantia", logged, solicitud.findSolc);
-api.post("/pagos-save", logged, solicitud.guardarPagos);
+api.post("/pagos-save", logged, solicitud.pagos);
 
 //Solicitud
 api.get('/solicitud', logged, function(req, res){
