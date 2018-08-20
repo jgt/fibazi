@@ -2,7 +2,6 @@ const Solicitud = require("../models/solicitud");
 const User = require("../models/user");
 const Pagos = require("../models/pagosGarantia");
 const PdfPrinter = require('pdfmake/src/printer');
-const escpos = require('escpos');
 const path =require("path");
 const fs = require('fs');
 
@@ -81,20 +80,7 @@ exports.guardarPagos = function(req, res){
 			'\n\n',
 			'\n\n',
 			'\n\n',
-			'\n\n',
-			'\n\n',
-			'\n\n',
-			'COLONIA: '+Paid.colonia,
-			'\n\n',
-			'CLAVE DE UBUCACION: '+Paid.folio,
-			'\n\n',
-			'RECIBO DE: '+Paid.nombre,
-			'\n\n',
-			'COSTO DEL SERVICIO: '+Paid.costo,
-			'\n\n',
-			'PAGO DE : '+Paid.pago,
-			'\n\n',
-			'FECHA: '+Paid.fecha
+			'COLONIA: '+Paid.colonia+ 'CLAVE DE UBUCACION: '+Paid.folio+ 'RECIBO DE: '+Paid.nombre+ 'COSTO DEL SERVICIO: '+Paid.costo+ 'PAGO DE : '+Paid.pago+ 'FECHA: '+Paid.fecha
 		]
 	};
 
@@ -108,11 +94,4 @@ exports.guardarPagos = function(req, res){
 	});
 }
 
-exports.pagos = function(req, res){
-	var usb = new escpos.USB.findPrinter();
-	console.log(usb);
-
-	
-
-}
 
