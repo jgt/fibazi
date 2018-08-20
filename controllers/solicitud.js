@@ -1,8 +1,9 @@
 const Solicitud = require("../models/solicitud");
 const User = require("../models/user");
 const Pagos = require("../models/pagosGarantia");
-const Printer = require('ipp-printer')
-const fs = require('fs')
+const PdfPrinter = require('pdfmake/src/printer');
+const path =require("path");
+const fs = require('fs');
 
 
 exports.solc = function(req, res){
@@ -39,6 +40,7 @@ exports.solc = function(req, res){
 exports.findSolc = function(req, res){
 	var folio = req.body.folio;
 	Solicitud.count({}, function(err, count){
+		if(folio == 0) res.render('site/buscadorGarantia', {count: count, message: req.flash("error_messages")});
 		if(folio <= count){
 			Solicitud.findOne({folio: folio}, function(err, sol){
 				if(err) return res.send({err: err});
@@ -61,8 +63,47 @@ exports.guardarPagos = function(req, res){
 		solicitud: req.body.solicitudId
 	});
 
+	var fonts = {
+		Roboto: {
+			normal: path.join(__dirname, '..', 'config', 'fonts/Roboto-Regular.ttf'),
+			bold: path.join(__dirname, '..', 'config', 'fonts/Roboto-Medium.ttf'),
+			italics: path.join(__dirname, '..', 'config', 'fonts/Roboto-Italic.ttf'),
+			bolditalics: path.join(__dirname, '..', 'config', 'fonts/Roboto-MediumItalic.ttf')
+		}
+	};	
+
+	res.setHeader('Content-type', 'application/pdf');
+	var printer = new PdfPrinter(fonts);
+
+	var docDefinition = {
+		content: [
+			'\n\n',
+			'\n\n',
+			'\n\n',
+			'\n\n',
+			'\n\n',
+			'\n\n',
+			'COLONIA: '+Paid.colonia,
+			'\n\n',
+			'CLAVE DE UBUCACION: '+Paid.folio,
+			'\n\n',
+			'RECIBO DE: '+Paid.nombre,
+			'\n\n',
+			'COSTO DEL SERVICIO: '+Paid.costo,
+			'\n\n',
+			'PAGO DE : '+Paid.pago,
+			'\n\n',
+			'FECHA: '+Paid.fecha
+		]
+	};
+
+	var pdfDoc = printer.createPdfKitDocument(docDefinition);
+	pdfDoc.pipe(res);
+	pdfDoc.end();
+
 	Paid.save(function(err){
 		if(err) return res.render("site/503-page");
-		res.render("site/pagosGarantia", {solicitud: Paid});
+		res.render('site/pagosGarantia', {solicitud: Paid});
 	});
 }
+

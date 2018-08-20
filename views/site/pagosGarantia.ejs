@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-wrap form-wrap-validation">
                   <label class="form-label form-label-outside" for="forms-email-1">Pago de</label>
-                  <input class="form-input" id="forms-email-1" type="text" name="pago" data-constraints="@Required">
+                  <input class="form-input" id="forms-email-1" type="text" name="pago" value="PAGO EN GARANTIA" readonly="readonly" data-constraints="@Required">
                 </div>
                 <div class="form-wrap form-wrap-validation">
                   <label class="form-label form-label-outside" for="forms-email-1">Fecha</label>
@@ -91,7 +91,7 @@
                   <input class="form-input" id="forms-name-1" type="hidden" value="<%=solicitud.id%>" readonly="readonly" name="solicitudId">
                 </div>
                 <div class="form-button">
-                  <button class="button button-block button-primary" type="submit">Imprimir pagos</button>
+                  <button class="button button-block button-primary" formtarget="_blank" type="submit">Imprimir pagos</button>
                 </div>
               </form>
             </div>
