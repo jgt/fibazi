@@ -145,10 +145,6 @@ exports.guardarPagos = function(req, res){
 		var docDefinition = {
 			pageOrientation: "Landscape",
 			content: [
-				'\n\n',
-				'\n\n',
-				'\n\n',
-				'\n\n',
 				{
 					text: 'COLONIA: '+Paid.colonia,
 				},
