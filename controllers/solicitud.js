@@ -143,18 +143,40 @@ exports.guardarPagos = function(req, res){
 		if(err) return res.render("site/503-page");
 		//res.render('site/pagosGarantia', {solicitud: Paid});
 		var docDefinition = {
+			pageOrientation: "Landscape",
 			content: [
-				'COLONIA: '+Paid.colonia,
 				'\n\n',
-				'CLAVE DE UBUCACION: '+Paid.folio,
 				'\n\n',
-				'RECIBO DE: '+Paid.nombre,
 				'\n\n',
-				'COSTO DEL SERVICIO: '+Paid.costo,
 				'\n\n',
-				'PAGO DE : '+Paid.pago,
+				{
+					text: 'COLONIA: '+Paid.colonia,
+				},
 				'\n\n',
-				'FECHA: '+moment(Paid.fecha).format('YYYY-DD-MM')
+				{
+					text: 'CLAVE DE UBUCACION: '+Paid.folio,
+					//absolutePosition: {x: 300, y: 100}
+				},
+				'\n\n',
+				{
+					text: 'RECIBO DE: '+Paid.nombre,
+					//absolutePosition: {x: 300, y: 100}
+				},
+				'\n\n',
+				{
+					text: 'COSTO DEL SERVICIO: '+Paid.costo,
+					//absolutePosition: {x: 300, y: 100}
+				},
+				'\n\n',
+				{
+					text: 'PAGO DE : '+Paid.pago,
+					//absolutePosition: {x: 300, y: 100}
+				},
+				'\n\n',
+				{
+					text: 'FECHA: '+moment(Paid.fecha).format('YYYY-DD-MM'),
+					//absolutePosition: {x: 300, y: 100}
+				}
 			]
 		};
 
