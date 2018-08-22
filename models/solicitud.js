@@ -9,6 +9,7 @@ AutoIncrement.initialize(connection, mongoose);
 const solicitudes = new Schema({
 	folio: {
 		type: Number,
+		default:0,
 		required: true,
 		unique: true
 
@@ -88,6 +89,10 @@ const solicitudes = new Schema({
 
 	economicos: [{
 		type: String
+	}],
+
+	edadEconomico : [{
+		type: Number
 	}],
 
 	observaciones: {
