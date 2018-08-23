@@ -7,17 +7,17 @@ const users = [
 	new User({
 		nombre: "jair",
 		email: "jgt08@hotmail.com",
-		password: "3556792"
+		password: "3556792",
 	}),
 	new User({
-		nombre: "angela",
-		email: "angela@hotmail.com",
-		password: "3556792"
+		nombre: "monge",
+		email: "monge@hotmail.com",
+		password: "3556792",
 	}),
 	new User({
 		nombre: "pepe",
 		email: "pepe@hotmail.com",
-		password: "3556792"
+		password: "3556792",
 	}),
 ];
 

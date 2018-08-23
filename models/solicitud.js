@@ -56,22 +56,18 @@ const solicitudes = new Schema({
 
 	calle: {
 		type: String,
-		required: true
 	},
 
 	manzana: {
 		type: Number,
-		required: true
 	},
 
 	lote: {
 		type: Number,
-		required: true
 	},
 
 	casa: {
 		type: Number,
-		required: true
 	},
 
 	telCasa: {
