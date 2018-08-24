@@ -7,7 +7,11 @@
                 <div class="rd-navbar-cell">
                   <ul class="navbar-inline-list">
                     <li class="rd-navbar-info">
-                      <div class="icon mdi mdi-login"></div><span><a class="link" href="/login">Login</a>
+                      <% if(user){%>
+                      <div class="icon mdi mdi-login"></div><span><a class="link" href="/logout">Salir</a>
+                      <%}else{%>
+                          <div class="icon mdi mdi-login"></div><span><a class="link" href="/login">Login</a>
+                        <%}%>
                     </li>
                     <li class="rd-navbar-info">
                       <div class="icon mdi mdi-email-open"></div><a class="link" href="mailto:#">fibazi@guerrero.gob.mx</a>

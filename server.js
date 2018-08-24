@@ -4,6 +4,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const logged = require("./middleware/logged");
 const session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const route_app = require("./routes/route_app")(passport);
@@ -40,9 +41,21 @@ app.use(bodyParser.json());
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(session({
-	resave: true,
-	saveUninitialized: true,
+	name: 'sessionId',
+	resave: false,
+	saveUninitialized: false,
 	secret: 'work hard',
+	store: new MongoStore({
+		mongooseConnection: mongoose.connection,
+		ttl: 60 * 60 * 24 * 1, // one day
+
+	}),
+	cookie: {
+		secure: false,
+		httpOnly: true,
+		expires: new Date(Date.now() + 60 * 60 * 24 * 1000) // one hour
+	}
+
 }));
 app.use(flash());
 

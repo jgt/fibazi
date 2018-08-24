@@ -6,7 +6,7 @@ const email = require("../controllers/sendEmail");
 
 //Construccion
 route.get("/", function(req, res){
-	res.render("site/index");
+	res.render("site/index", {user: req.user});
 });
 
 //Blog
@@ -28,7 +28,11 @@ route.get("/about", function(req, res){
 
 //Login
 route.get("/login", function(req, res){
-	res.render("site/login");
+	if(req.user){
+		res.redirect('/solicitud');
+	}else{
+		res.render("site/login");
+	}
 });
 route.get('/logout', function(req, res){
 	req.logout();

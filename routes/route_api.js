@@ -23,6 +23,7 @@ api.post("/pagos-save", logged, solicitud.guardarPagos);
 
 //Solicitud
 api.get('/solicitud', logged, function(req, res){
+	console.log(req.user);
 	res.render('site/solicitud');
 });
 
