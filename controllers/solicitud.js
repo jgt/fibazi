@@ -22,7 +22,7 @@ function fonts(){
 	return font
 }
 
-exports.solc = async function(req, res){
+exports.solc = function(req, res){
 		var Cliente = new Solicitud({
 			nombres: req.body.nombres,
 			apellidoP: req.body.apellidoP,
@@ -50,7 +50,7 @@ exports.solc = async function(req, res){
 
 		var printer = new PdfPrinter(fonts());
 
-		await Cliente.save(function(err){
+		Cliente.save(function(err){
 			if(err) return res.render('site/503-page.html', {err: err});
 			//res.render('site/solicitud');
 			Lider.findById(Cliente.lider._id, function(err, lid){
@@ -213,9 +213,9 @@ exports.solc = async function(req, res){
 		});
 }
 
-exports.findSolc = async function(req, res){
+exports.findSolc = function(req, res){
 	var folio = req.body.folio;
-	await Solicitud.count({}, function(err, count){
+	Solicitud.count({}, function(err, count){
 		if(folio == 0) res.render('site/buscadorGarantia.html', {count: count, message: req.flash("error_messages")});
 		if(folio <= count){
 			Solicitud.findOne({folio: folio}, function(err, sol){
@@ -228,7 +228,7 @@ exports.findSolc = async function(req, res){
 	});
 }
 
-exports.guardarPagos = async function(req, res){
+exports.guardarPagos = function(req, res){
 	var Paid = new Pagos({
 		colonia: req.body.colonia,
 		folio: req.body.folio,
@@ -241,7 +241,7 @@ exports.guardarPagos = async function(req, res){
 
 	var printer = new PdfPrinter(fonts());
 
-	await Paid.save(function(err){
+	Paid.save(function(err){
 		if(err) return res.render("site/503-page.html");
 		//res.render('site/pagosGarantia', {solicitud: Paid});
 		var docDefinition = {
