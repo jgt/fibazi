@@ -1,0 +1,10 @@
+{
+	"contacto": {
+		"_model": "Contactos",
+		"contacto1": {
+			"nombre": "jair",
+			"telefono": "7551138455",
+			"colonia": "buenavista"
+		}
+	}
+}

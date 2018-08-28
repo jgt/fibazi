@@ -17,7 +17,7 @@ exports.sendEmail = function(req, res){
 	};
 
 	transporter.sendMail(mailOptions, function(err, info){
-		if(err) res.render("site/503-page");
-		res.render("site/404-page");
+		if(err) res.render("site/503-page.html");
+		res.render("site/404-page.html");
 	});
 }

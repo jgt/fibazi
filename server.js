@@ -26,6 +26,8 @@ mongoose.connect(db)
 		console.log(err);
 	});
 
+
+
 //Add the file passport configuration
 require('./passport/passport')(passport);
 
@@ -33,11 +35,12 @@ require('./passport/passport')(passport);
 //Settings
 const port = process.env.PORT || 3000;
 app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
 app.set("view engine", "ejs");
 
 //Middleware
-app.use(bodyParser.urlencoded({ extended: false })); 
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(session({

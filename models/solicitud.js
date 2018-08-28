@@ -103,6 +103,18 @@ const solicitudes = new Schema({
 	usuario: {
 		type: Schema.Types.ObjectId,
 		ref: 'User'
+	},
+
+	lider: {
+		type: Schema.Types.ObjectId,
+		ref: 'Lider',
+		required: true
+	},
+
+	contacto: {
+		type: Schema.Types.ObjectId,
+		ref: 'Contactos',
+		required: true
 	}
 
 });

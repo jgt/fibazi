@@ -3,7 +3,8 @@
   <head>
     <!-- Site Title-->
     <title>Solicitud</title>
-    <% include ../head/head %>
+    <script src="js/jquery.js"></script>
+    <% include ../head/head.html%>
   </head>
   <body>
     <!-- Page-->
@@ -55,6 +56,22 @@
                 <div class="col-md-8 order-md-1">
                   <form class="needs-validation" action="/solicitud" method="POST" novalidate>
                     <div class="row">
+                       <div class="col-md-6 mb-3">
+                        <label for="referente">Referentes</label>
+                        <select class="custom-select d-block w-100" name="referente" id="referente" required>
+                          <option></option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Este valor es requerido.
+                        </div>
+                      </div>
+                       <div class="col-md-6 mb-3">
+                        <label for="referente">Contactos</label>
+                        <select class="custom-select d-block w-100" name="contacto" id="contacto" required></select>
+                        <div class="invalid-feedback">
+                            Este valor es requerido.
+                        </div>
+                      </div>
                       <div class="col-md-6 mb-3">
                         <label for="firstName">Nombres</label>
                         <input type="text" class="form-control" name="nombres" required>
@@ -239,7 +256,7 @@
       </section>
       <!-- Page Footer-->
       <footer>
-       <% include ../footer/footer %>
+       <% include ../footer/footer.html %>
       </footer>
     </div>
     <!-- PANEL-->
@@ -247,6 +264,26 @@
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
+    <script>
+      $(document).ready(function(){
+        $.get("http://localhost:3000/lid", function(value){
+          var select = $("#referente");
+          var contSelect = $("#contacto");
+          $.each(value.data, function(cont, val){
+            select.append('<option  value='+val._id+'>'+val.nombre+'</option>');
+            select.on("change", function(event){
+              var id = select.find(":selected").val();
+              if(id === val._id){
+                contSelect.empty();
+                $.each(val.contactos, function(cont, contacto){
+                  contSelect.append('<option value='+contacto._id+'>'+contacto.nombre+'</option>');
+                });
+              }
+            });
+          });
+        });
+      });
+    </script>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
   </body>

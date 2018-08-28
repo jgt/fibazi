@@ -2,8 +2,8 @@
 <html class="wide smoothscroll wow-animation" lang="en">
   <head>
     <!-- Site Title-->
-    <title>Contacto</title>
-    <% include ../head/head %>
+    <title>Pagos Con Garantia</title>
+    <% include ../head/head.html %>
   </head>
   <body>
     <!-- Page-->
@@ -21,17 +21,14 @@
         </div>
       </div>
       <!-- Page Header-->
-      <header class="section page-header">
-        <!-- RD Navbar-->
-        <% include ../headers/header%>
-      </header>
+      <header class="section page-header"></header>
       <section class="section section-bredcrumbs">
         <div class="context-dark breadcrumb-wrapper bg-image-breadcrumbs-1">
           <div class="shell-wide">
             <div class="range range-center">
               <div class="cell-xxl-7">
-                <h5>Contact Us</h5>
-                <h1 class="title">Contacto</h1>
+                <h5>Pagos con Garantia</h5>
+                <h1 class="title">Buscar por folio</h1>
                 <div class="divider divider-3"></div>
               </div>
             </div>
@@ -41,42 +38,36 @@
           <div class="shell-wide">
             <ol class="breadcrumbs">
               <li><a href="./">Inicio</a></li>
-              <li>Contacto</li>
+              <li><a href="/solicitud">Crear Solicitud</a></li>
+              <li><a href="/logout">Salir</a></li>
             </ol>
           </div>
         </div>
       </section>
-
-      <!-- Contacts-->
+      <!-- Login form-->
       <section class="section section-lg bg-white">
         <div class="shell shell-wide">
           <div class="range range-40 range-center">
             <div class="cell-sm-10 cell-md-8 cell-lg-7 cell-xl-6 cell-xl-preffix-1">
-              <h2>Contactanos</h2>
+              <h2>Introduce el numero de folio</h2>
               <div class="divider divider-2"></div>
-              <p>You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit our office personally.</p>
-              <!-- RD Mailform-->
-              <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="forms" method="POST" action="/contact">
-                <div class="form-wrap form-wrap-validation">
-                  <label class="form-label form-label-outside" for="forms-name-1">Nombre</label>
-                  <input class="form-input" id="forms-name-1" type="text" name="name" data-constraints="@Required">
+              <% if(locals.message){ %>
+                <div class="alert alert-error" role="alert">
+                    <strong>Error! el numero de folio no existe</strong>
                 </div>
-                <div class="form-wrap form-wrap-validation">
-                  <label class="form-label form-label-outside" for="forms-email-1">Correos</label>
-                  <input class="form-input" id="forms-email-1" type="email" name="email" data-constraints="@Email @Required">
-                </div>
-                <div class="form-button">
-                  <button class="button button-block button-primary" type="submit">Enviar</button>
-                </div>
+              <% } %>
+              <p>Ingresa el numero de folio para que el sistema recopile los datos. numero de folios disponibles (<%=count%>)</p>
+              <form class="form-inline mt-2 mt-md-0" action="/pagos-garantia" method="POST">
+                <input class="form-control mr-sm-2" type="text" placeholder="introduce numero de folio" name="folio" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
               </form>
             </div>
           </div>
         </div>
       </section>
-
       <!-- Page Footer-->
       <footer>
-       <% include ../footer/footer%>
+       <% include ../footer/footer.html %>
       </footer>
     </div>
     <!-- PANEL-->

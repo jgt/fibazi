@@ -1,6 +1,8 @@
 const Solicitud = require("../models/solicitud");
 const User = require("../models/user");
 const Pagos = require("../models/pagosGarantia");
+const Contactos = require("../models/contactos");
+const Lider = require("../models/lideres");
 const PdfPrinter = require('pdfmake/src/printer');
 const moment = require('moment');
 const path =require("path");
@@ -20,9 +22,8 @@ function fonts(){
 	return font
 }
 
-exports.solc = function(req, res){
-	User.findOne({email: req.user.email}, function(err, user){
-			var Cliente = new Solicitud({
+exports.solc = async function(req, res){
+		var Cliente = new Solicitud({
 			nombres: req.body.nombres,
 			apellidoP: req.body.apellidoP,
 			apellidoM: req.body.apellidoM,
@@ -42,14 +43,20 @@ exports.solc = function(req, res){
 			edadEconomico: req.body.edadEconomico,
 			observaciones: req.body.observaciones,
 			fecha: req.body.fecha,
-			usuario: user._id
+			lider: req.body.referente,
+			contacto: req.body.contacto,
+			usuario: res.locals.user.id
 		});
 
 		var printer = new PdfPrinter(fonts());
 
-		Cliente.save(function(err){
-			if(err) return res.render('site/503-page', {err: err});
+		await Cliente.save(function(err){
+			if(err) return res.render('site/503-page.html', {err: err});
 			//res.render('site/solicitud');
+			Lider.findById(Cliente.lider._id, function(err, lid){
+				lid.solicitudes.push(Cliente._id);
+				lid.save();
+			});
 			var docDefinition = {
 				pageMargins: [10, 10, 10, 10],
 				content: [
@@ -204,25 +211,24 @@ exports.solc = function(req, res){
 			pdfDoc.pipe(res);
 			pdfDoc.end();
 		});
-	});
 }
 
-exports.findSolc = function(req, res){
+exports.findSolc = async function(req, res){
 	var folio = req.body.folio;
-	Solicitud.count({}, function(err, count){
-		if(folio == 0) res.render('site/buscadorGarantia', {count: count, message: req.flash("error_messages")});
+	await Solicitud.count({}, function(err, count){
+		if(folio == 0) res.render('site/buscadorGarantia.html', {count: count, message: req.flash("error_messages")});
 		if(folio <= count){
 			Solicitud.findOne({folio: folio}, function(err, sol){
 				if(err) return res.send({err: err});
-				res.render('site/pagosGarantia', {solicitud: sol});
+				res.render('site/pagosGarantia.html', {solicitud: sol});
 			});
 		}else{
-			res.render('site/buscadorGarantia', {count: count, message: req.flash("error_messages")});
+			res.render('site/buscadorGarantia.html', {count: count, message: req.flash("error_messages")});
 		}
 	});
 }
 
-exports.guardarPagos = function(req, res){
+exports.guardarPagos = async function(req, res){
 	var Paid = new Pagos({
 		colonia: req.body.colonia,
 		folio: req.body.folio,
@@ -235,8 +241,8 @@ exports.guardarPagos = function(req, res){
 
 	var printer = new PdfPrinter(fonts());
 
-	Paid.save(function(err){
-		if(err) return res.render("site/503-page");
+	await Paid.save(function(err){
+		if(err) return res.render("site/503-page.html");
 		//res.render('site/pagosGarantia', {solicitud: Paid});
 		var docDefinition = {
 			pageOrientation: "Landscape",
