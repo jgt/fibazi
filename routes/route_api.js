@@ -29,9 +29,6 @@ api.get('/solicitud', logged, function(req, res){
 	res.render('site/solicitud.html');
 });
 api.post("/solicitud", logged, solicitud.solc);
-
-
-
-api.get("/prueba", logged, lider.lideresContactos);
+//api.get("/prueba", logged, lider.lideresContactos);
 
 module.exports = api;

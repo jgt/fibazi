@@ -50,6 +50,14 @@
                         <li><a href="/antecedentes">Antecedentes</a></li>
                       </ul>
                     </li>
+                    <% if(user){%>
+                      <li><a href="#">Sistema Fibazi</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="/solicitud">Crear Solicitud</a></li>
+                        <li><a href="/buscador-garantia">Hacer pagos</a></li>
+                      </ul>
+                    <%}%>
                     <li><a href="#">Departamentos</a>
                       <!-- RD Navbar Dropdown-->
                       <ul class="rd-navbar-dropdown">

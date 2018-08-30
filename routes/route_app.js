@@ -53,7 +53,7 @@ module.exports = function(passport){
 
 	route.post('/login', passport.authenticate('local', {
 		failureRedirect: '/login',
-		successRedirect: '/solicitud'
+		successRedirect: '/'
 
 	}));
 

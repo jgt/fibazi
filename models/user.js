@@ -19,7 +19,6 @@ const user = new Schema({
 		type: String,
 		required: true
 	}
-
 });
 
 user.pre('save', function(next){
