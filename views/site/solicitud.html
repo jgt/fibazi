@@ -49,6 +49,11 @@
       <section class="section section-lg bg-white">
         <div class="shell">
           <h2>Solicitud</h2>
+          <%if(locals.error){%>
+            <div class="alert alert-danger">
+              <strong>Error!</strong> Por favor rellena todos los campos marcados como obligatorio.
+            </div>
+          <%}%>
           <div class="divider divider-2"></div>
               <!-- RD Mailform-->
               <div class="row">
@@ -248,7 +253,11 @@
                         </div>
                     </div>
                     <hr class="mb-4">
+                    <%if(locals.error){%>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Imprimir Solicitud</button>
+                    <%}else{%>
                     <button class="btn btn-primary btn-lg btn-block" formtarget="_blank" type="submit">Imprimir Solicitud</button>
+                    <%}%>
                   </form>
                 </div>
               </div>

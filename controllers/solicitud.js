@@ -7,6 +7,10 @@ const PdfPrinter = require('pdfmake/src/printer');
 const fonts = require("../config/fonts");
 const docDefinition = require("../modulos/pdfMaker/pdfData");
 
+exports.getSolc = function(req, res){
+	res.render("site/solicitud.html");
+}
+
 exports.solc = function(req, res){
 		var Cliente = new Solicitud({
 			nombres: req.body.nombres,
@@ -35,9 +39,7 @@ exports.solc = function(req, res){
 
 		var printer = new PdfPrinter(fonts());
 
-		Cliente.save(function(err){
-			if(err) return res.render('site/503-page.html', {err: err});
-			//res.render('site/solicitud');
+		Cliente.save().then(function(){
 			Lider.findById(Cliente.lider._id, function(err, lid){
 				lid.solicitudes.push(Cliente._id);
 				lid.save();
@@ -47,20 +49,29 @@ exports.solc = function(req, res){
 			var pdfDoc = printer.createPdfKitDocument(docDefinition.solicitud(Cliente));
 			pdfDoc.pipe(res);
 			pdfDoc.end();
-		});
+
+		}).catch(function(err){
+			res.render('site/solicitud.html', {error: req.flash("error", "error")});
+		})
+}
+
+exports.getFindSolc = function(req, res){
+	Solicitud.count({}, function(err, count){
+		res.render("site/buscadorGarantia.html", {count: count});
+	});
 }
 
 exports.findSolc = function(req, res){
 	var folio = req.body.folio;
 	Solicitud.count({}, function(err, count){
-		if(folio == 0) res.render('site/buscadorGarantia.html', {count: count, message: req.flash("error_messages")});
+		if(folio == 0) res.render('site/buscadorGarantia.html', {count: count, error: req.flash("error", "error")});
 		if(folio <= count){
 			Solicitud.findOne({folio: folio}, function(err, sol){
 				if(err) return res.send({err: err});
 				res.render('site/pagosGarantia.html', {solicitud: sol});
 			});
 		}else{
-			res.render('site/buscadorGarantia.html', {count: count, message: req.flash("error_messages")});
+			res.render('site/buscadorGarantia.html', {count: count, error: req.flash("error", "error")});
 		}
 	});
 }
@@ -78,14 +89,15 @@ exports.guardarPagos = function(req, res){
 
 	var printer = new PdfPrinter(fonts());
 
-	Paid.save(function(err){
-		if(err) return res.render("site/503-page.html");
-		//res.render('site/pagosGarantia', {solicitud: Paid});
+	Paid.save().then(function(){
 		res.setHeader('Content-type', 'application/pdf');
 		var pdfDoc = printer.createPdfKitDocument(docDefinition.pagos(Paid));
 		pdfDoc.pipe(res);
 		pdfDoc.end();
-	});
+
+	}).catch(function(err){
+		res.render('site/pagosGarantia.html', {solicitud: Paid, error: req.flash("error", "error")});
+	})
 }
 
 

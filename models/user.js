@@ -18,7 +18,12 @@ const user = new Schema({
 	password: {
 		type: String,
 		required: true
-	}
+	},
+
+	role: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Role'
+	}]
 });
 
 user.pre('save', function(next){

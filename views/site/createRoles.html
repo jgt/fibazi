@@ -2,8 +2,8 @@
 <html class="wide smoothscroll wow-animation" lang="en">
   <head>
     <!-- Site Title-->
-    <title>Pagos Con Garantia</title>
-    <% include ../head/head.html %>
+    <title>Crear Roles</title>
+    <% include ../head/head.html%>
   </head>
   <body>
     <!-- Page-->
@@ -27,8 +27,8 @@
           <div class="shell-wide">
             <div class="range range-center">
               <div class="cell-xxl-7">
-                <h5>Pagos con Garantia</h5>
-                <h1 class="title">Buscar por folio</h1>
+                <h5>Roles</h5>
+                <h1 class="title">Crea Roles</h1>
                 <div class="divider divider-3"></div>
               </div>
             </div>
@@ -38,7 +38,7 @@
           <div class="shell-wide">
             <ol class="breadcrumbs">
               <li><a href="./">Inicio</a></li>
-              <li><a href="/solicitud">Crear Solicitud</a></li>
+              <li><a href="/user">Crear usuarios</a></li>
               <li><a href="/logout">Salir</a></li>
             </ol>
           </div>
@@ -49,17 +49,34 @@
         <div class="shell shell-wide">
           <div class="range range-40 range-center">
             <div class="cell-sm-10 cell-md-8 cell-lg-7 cell-xl-6 cell-xl-preffix-1">
-              <h2>Introduce el numero de folio</h2>
-              <div class="divider divider-2"></div>
-              <% if(locals.error){ %>
+              <h2>Crea tu role con sus permisos</h2>
+              <%if(locals.error){%>
                 <div class="alert alert-danger">
-                  <strong>Error!</strong> El numero de folio no existe.
+                  <strong>Error!</strong> Por favor rellena los campos marcados.
                 </div>
-              <% } %>
-              <p>Ingresa el numero de folio para que el sistema recopile los datos. numero de folios disponibles (<%=count%>)</p>
-              <form class="form-inline mt-2 mt-md-0" action="/buscador-garantia" method="POST">
-                <input class="form-control mr-sm-2" type="text" placeholder="introduce numero de folio" name="folio" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
+              <%}else if(locals.success){%>
+                <div class="alert alert-success">
+                   <strong>Guardado!</strong> El role ha sido creado correctamente.
+                </div>
+              <%}%>
+              <p>Esta seccion es solo para administradores.</p>
+              <!-- RD Mailform-->
+              <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="forms" method="POST" action="/role">
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-name-1">Nombre del rol</label>
+                  <input class="form-input" id="forms-name-1" type="text" name="nombre" data-constraints="@Required">
+                </div>
+                <div class="form-wrap form-wrap-validation">
+                  <label class="form-label form-label-outside" for="forms-name-1">Nivel de seguridad</label>
+                  <select class="custom-select d-block w-100" name="level">
+                    <% level.forEach(function(lev){%>
+                      <option value="<%=lev._id%>"><%=lev.nombre%></option>
+                    <%});%>
+                  </select>
+                </div>
+                <div class="form-button">
+                  <button class="button button-block button-primary" type="submit">Crear role</button>
+                </div>
               </form>
             </div>
           </div>

@@ -9,6 +9,10 @@ route.get("/", function(req, res){
 	res.render("site/index.html", {user: req.user});
 });
 
+route.get("/departamentos", function(req, res){
+	res.render("site/departamentos.html")
+})
+
 //Blog
 route.get("/blog", function(req, res){
 	res.render("pug/pages/classic-blog.html");

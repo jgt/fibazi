@@ -13,7 +13,11 @@ module.exports = function(passport){
 		done(null, user);
 	});
 
-	passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password'}, function(email, password, done){
+	passport.use(new LocalStrategy({
+		usernameField: 'email', 
+		passwordField: 'password'
+	}, 
+	function(email, password, done){
 		User.findOne({email: email}, function(err, user){
 			if(err){
 				done(err)
@@ -21,15 +25,15 @@ module.exports = function(passport){
 				if(user){
 					const valid = bcrypt.compareSync(password, user.password);
 					if(valid){
-						done(null, {
+						return done(null, {
 							email: email,
 							password: user.password
 						});
 					}else{
-						done(null, false);
+						return done(null, false);
 					}
 				}else {
-					done(null, false);
+					return done(null, false);
 				}
 			}
 		});

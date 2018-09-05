@@ -23,7 +23,8 @@
     "passport-local": "^1.0.0",
     "pdfmake": "^0.1.37",
     "pug": "^2.0.3",
-    "serialport": "^6.2.2"
+    "serialport": "^6.2.2",
+    "user-groups-roles": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {

@@ -10,9 +10,7 @@ const route_app = require("./routes/route_app")(passport);
 const route_api = require("./routes/route_api");
 const helmet = require('helmet');
 const morgan = require('morgan');
-const path =require("path");
-
-
+const path = require("path");
 
 //Se inicializa el objecto express
 const app = express();
@@ -58,19 +56,28 @@ app.use(session({
 	}
 
 }));
-app.use(flash());
 
 
 //Passport inizitalize
 app.use(passport.initialize());
 app.use(passport.session());
 
+//error flash
+app.use(flash());
+
 //Static file
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Se monta las rutas de la app
 app.use(route_app);
-app.use(route_api);
+app.use(logged, route_api);
+
+//Erroes globales
+app.use(function(req, res, next){
+	res.locals.error = req.flash("error", "error");
+	res.locals.success = req.flash("success", "success");
+	next();
+});
 
 app.listen(port, function(){
 	console.log('server on express');

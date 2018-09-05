@@ -51,18 +51,22 @@
             <div class="cell-sm-10 cell-md-8 cell-lg-7 cell-xl-6 cell-xl-preffix-1">
               <h2>Introduce el numero de folio</h2>
               <div class="divider divider-2"></div>
-              <% if(locals.messages){ %>
-                <div class="alert alert-error" role="alert">
-                    <strong>Error! porfavor rellena todos los datos del formulario</strong>
+              <% if(locals.error){ %>
+                <div class="alert alert-danger">
+                  <strong>Error!</strong> Por favor rellena todos los campos.
                 </div>
-              <% } %>
+              <%}else if(locals.success){%>
+                <div class="alert alert-success">
+                  <strong>Guardado!</strong> El pago ha sido guardado en el sistema.
+                </div>
+              <%}%>
               <p>Este formato se guarda automaticamente en el sistema.</p>
-              <form class="form-inline mt-2 mt-md-0" action="/pagos-garantia" method="POST">
+              <form class="form-inline mt-2 mt-md-0" action="/buscador-garantia" method="POST">
                 <input class="form-control mr-sm-2" type="text" placeholder="introduce numero de folio" name="folio" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
               </form>
               <!-- RD Mailform-->
-              <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="forms" method="POST" action="/pagos-save">
+              <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="forms" method="POST" action="/pagos-garantia">
                 <div class="form-wrap form-wrap-validation">
                   <label class="form-label form-label-outside" for="forms-name-1">Recibos de:</label>
                   <input class="form-input" id="forms-name-1" type="text" name="nombre" value="<%=solicitud.nombres%>" readonly="readonly" data-constraints="@Required">
@@ -91,7 +95,11 @@
                   <input class="form-input" id="forms-name-1" type="hidden" value="<%=solicitud.id%>" readonly="readonly" name="solicitudId">
                 </div>
                 <div class="form-button">
-                  <button class="button button-block button-primary" formtarget="_blank" type="submit">Imprimir pagos</button>
+                  <%if(locals.error){%>
+                  <button class="button button-block button-primary" type="submit">Imprimir pagos</button>
+                  <%}else{%>
+                    <button class="button button-block button-primary" formtarget="_blank" type="submit">Imprimir pagos</button>
+                  <%}%>
                 </div>
               </form>
             </div>

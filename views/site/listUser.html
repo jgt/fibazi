@@ -2,8 +2,8 @@
 <html class="wide smoothscroll wow-animation" lang="en">
   <head>
     <!-- Site Title-->
-    <title>Pagos Con Garantia</title>
-    <% include ../head/head.html %>
+    <title>Lista de usuarios</title>
+   <% include ../head/head.html%>
   </head>
   <body>
     <!-- Page-->
@@ -21,14 +21,16 @@
         </div>
       </div>
       <!-- Page Header-->
-      <header class="section page-header"></header>
+      <header>
+        
+      </header>
       <section class="section section-bredcrumbs">
         <div class="context-dark breadcrumb-wrapper bg-image-breadcrumbs-1">
           <div class="shell-wide">
             <div class="range range-center">
               <div class="cell-xxl-7">
-                <h5>Pagos con Garantia</h5>
-                <h1 class="title">Buscar por folio</h1>
+                <h5>Lista de usuarios</h5>
+                <h1 class="title">Panel administrativo</h1>
                 <div class="divider divider-3"></div>
               </div>
             </div>
@@ -38,36 +40,42 @@
           <div class="shell-wide">
             <ol class="breadcrumbs">
               <li><a href="./">Inicio</a></li>
-              <li><a href="/solicitud">Crear Solicitud</a></li>
+              <li><a href="/user">Crear usuario</a></li>
               <li><a href="/logout">Salir</a></li>
             </ol>
           </div>
         </div>
       </section>
-      <!-- Login form-->
-      <section class="section section-lg bg-white">
-        <div class="shell shell-wide">
-          <div class="range range-40 range-center">
-            <div class="cell-sm-10 cell-md-8 cell-lg-7 cell-xl-6 cell-xl-preffix-1">
-              <h2>Introduce el numero de folio</h2>
-              <div class="divider divider-2"></div>
-              <% if(locals.error){ %>
-                <div class="alert alert-danger">
-                  <strong>Error!</strong> El numero de folio no existe.
-                </div>
-              <% } %>
-              <p>Ingresa el numero de folio para que el sistema recopile los datos. numero de folios disponibles (<%=count%>)</p>
-              <form class="form-inline mt-2 mt-md-0" action="/buscador-garantia" method="POST">
-                <input class="form-control mr-sm-2" type="text" placeholder="introduce numero de folio" name="folio" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
-              </form>
+      <!-- Color Header-->
+      <section class="section section-lg bg-white text-center">
+        <div class="shell">
+          <h2>Lista de usuarios</h2>
+          <div class="divider divider-2"></div>
+          <div class="range range-xs-center">
+            <div class="cell-sm-10 cell-lg-8">
+              <div class="table-custom-wrap">
+                <table class="table-custom table-primary table-fixed">
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                  </tr>
+                  <% users.forEach(function(user){%>
+                    <tr>
+                      <td><%=user.nombre%></td>
+                      <td><%=user.email%></td>
+                      <td></td> 
+                    </tr>
+                  <%});%>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </section>
       <!-- Page Footer-->
       <footer>
-       <% include ../footer/footer.html %>
+        <% include ../footer/footer.html%>
       </footer>
     </div>
     <!-- PANEL-->
@@ -75,7 +83,6 @@
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
+    <% include ../head/javascript.html%>
   </body>
 </html>
