@@ -4,14 +4,14 @@ exports.sendEmail = function(req, res){
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
-			user: 'jair.galvis30@gmail.com',
-			pass: 'jgt3556792'
+			user: 'fibazi@guerrero.gob.mx',
+			pass: '1974direccion'
 		}
 	});
 
 	const mailOptions = {
-		from: "jair.galvis30@gmail.com",
-		to: req.body.email,
+		from: req.body.email,
+		to: 'fibazi@guerrero.gob.mx',
 		subject: 'Fibazi',
 		text: "hola mundo"
 	};
