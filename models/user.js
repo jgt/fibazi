@@ -20,9 +20,14 @@ const user = new Schema({
 		required: true
 	},
 
-	role: [{
+	role: {
 		type: Schema.Types.ObjectId,
 		ref: 'Role'
+	},
+
+	level: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Levels'
 	}]
 });
 

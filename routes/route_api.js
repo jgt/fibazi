@@ -1,4 +1,5 @@
 const express = require("express");
+const User = require("../models/user");
 const api = express.Router();
 
 //Controllers
@@ -37,5 +38,16 @@ api.route("/list-user")
 api.route("/role")
 	.get(roles.getRole)
 	.post(roles.createRole);
+
+api.route("/prueba")
+	.get(function(req, res){
+		if(res.locals.user.role){
+			User.findById(res.locals.user._id).populate("role level").exec(function(err, user){
+				res.json(user);
+			});
+		}else{
+			res.send("no tiene rol");
+		}
+	});
 
 module.exports = api;

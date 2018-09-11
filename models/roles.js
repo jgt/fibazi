@@ -7,10 +7,10 @@ const roles = new Schema({
 		required: true
 	},
 
-	level: {
+	level: [{
 		type: Schema.Types.ObjectId,
 		ref: "Levels"
-	}
+	}]
 });
 
 module.exports = mongoose.model("Role", roles);

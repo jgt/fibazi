@@ -1,5 +1,4 @@
 const Role = require("../models/roles");
-const Level = require("../models/level");
 
 //vista para crear el role
 exports.getRole = function(req, res){
