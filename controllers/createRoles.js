@@ -8,8 +8,7 @@ exports.getRole = function(req, res){
 //Post para crear el role
 exports.createRole = function(req, res, next){
 	var role = new Role({
-		nombre: req.body.nombre,
-		level: req.body.level
+		nombre: req.body.nombre
 	});
 
 	role.save().then(function(){

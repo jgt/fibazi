@@ -25,14 +25,15 @@ const user = new Schema({
 		ref: 'Role'
 	},
 
-	level: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Levels'
-	}]
+	level: {
+		type: String,
+		enum: ["1", "2"]
+	}
 });
 
 user.pre('save', function(next){
 	var user = this;
+	if (!user.isModified('password')) return next();
 	bcrypt.hash(user.password, null, null, function(err, hash){
 		if(err) return next(err);
 		user.password = hash;

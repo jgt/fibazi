@@ -6,10 +6,11 @@ const logged = require("./middleware/logged");
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
-const route_app = require("./routes/route_app")(passport);
+const route_app = require("./routes/route_app")(passport);	
 const route_api = require("./routes/route_api");
 const helmet = require('helmet');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const path = require("path");
 
 //Se inicializa el objecto express
@@ -36,6 +37,7 @@ app.engine('html', require('ejs').renderFile);
 app.set("view engine", "ejs");
 
 //Middleware
+app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(helmet());

@@ -66,14 +66,6 @@
                   <label class="form-label form-label-outside" for="forms-name-1">Nombre del rol</label>
                   <input class="form-input" id="forms-name-1" type="text" name="nombre" data-constraints="@Required">
                 </div>
-                <div class="form-wrap form-wrap-validation">
-                  <label class="form-label form-label-outside" for="forms-name-1">Nivel</label>
-                  <select class="selectpicker" data-live-search="false" name="level" multiple>
-                    <% level.forEach(function(lev){%>
-                      <option value="<%=lev._id%>"><%=lev.nombre%></option>
-                    <%})%>
-                  </select>
-                </div>
                 <div class="form-button">
                   <button class="button button-block button-primary" type="submit">Crear role</button>
                 </div>

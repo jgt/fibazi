@@ -10,7 +10,7 @@ route.get("/", function(req, res){
 });
 
 route.get("/departamentos", function(req, res){
-	res.render("site/departamentos.html")
+	res.render("site/departamentos.html");
 })
 
 //Blog

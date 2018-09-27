@@ -50,6 +50,15 @@
       <section class="section section-lg bg-white text-center">
         <div class="shell">
           <h2>Lista de usuarios</h2>
+          <%if(locals.error){%>
+                <div class="alert alert-danger">
+                  <strong>Error!</strong> Error al borrar el usuario por favor intentalo de nuevo.
+                </div>
+              <%}else if(locals.success){%>
+                <div class="alert alert-success">
+                   <strong>Usuario borrado!</strong> El usuario se ha eliminado correctamente.
+                </div>
+              <%}%>
           <div class="divider divider-2"></div>
           <div class="range range-xs-center">
             <div class="cell-sm-10 cell-lg-8">
@@ -64,7 +73,12 @@
                     <tr>
                       <td><%=user.nombre%></td>
                       <td><%=user.email%></td>
-                      <td></td> 
+                      <td>
+                        <form action="/user/<%=user._id%>?_method=DELETE" method="POST">
+                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                        </form>
+                        <a href="/user/<%=user._id%>" class="btn btn-warning" style="margin:2px;" ><span class="glyphicon glyphicon-edit"></span></a>
+                      </td> 
                     </tr>
                   <%});%>
                 </table>

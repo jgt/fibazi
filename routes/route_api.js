@@ -7,47 +7,47 @@ const user = require("../controllers/users");
 const solicitud = require("../controllers/solicitud");
 const lider = require("../controllers/lideres");
 const roles = require("../controllers/createRoles");
+const pagos = require("../controllers/pagos");
+
+//Midleware
+const permisos = require("../middleware/roles");
 
 //Buscador Garantia
 api.route("/buscador-garantia")
-	.get(solicitud.getFindSolc)
-	.post(solicitud.findSolc);
+	.get(permisos.pagos, pagos.getFindSolc)
+	.post(permisos.pagos, pagos.findSolc);
 
 //Pagos en garantia
 api.route("/pagos-garantia")
-	.post(solicitud.guardarPagos)
+	.post(permisos.pagos, pagos.guardarPagos)
 
 //Solicitud
 api.route("/lid")
-	.get(lider.lideresContactos); // data de los referentes y contactos
+	.get(permisos.ventas, lider.lideresContactos); // data de los referentes y contactos
 
 api.route("/solicitud")
-	.get(solicitud.getSolc)
-	.post(solicitud.solc);
+	.get(permisos.ventas, solicitud.getSolc)
+	.post(permisos.ventas, solicitud.solc);
 
 //Crear Usuario
 api.route("/user")
-	.get(user.getCreateUser)
-	.post(user.createUser);
+	.get(permisos.admin, user.getCreateUser)
+	.post(permisos.admin, user.createUser);
 
 //lista de usuarios
 api.route("/list-user")
-	.get(user.getAllUser);	
+	.get(permisos.admin, user.getAllUser);
+
+//Delete user and Update user
+api.route("/user/:id")
+	.get(permisos.admin, user.getUpdateUser)
+	.put(permisos.admin, user.updateUser)
+	.delete(permisos.admin, user.deleteUser);
 
 //Crear Roles
 api.route("/role")
 	.get(roles.getRole)
 	.post(roles.createRole);
 
-api.route("/prueba")
-	.get(function(req, res){
-		if(res.locals.user.role){
-			User.findById(res.locals.user._id).populate("role level").exec(function(err, user){
-				res.json(user);
-			});
-		}else{
-			res.send("no tiene rol");
-		}
-	});
 
 module.exports = api;
