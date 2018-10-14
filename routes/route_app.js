@@ -1,4 +1,5 @@
 const express = require("express");
+const Noticia = require("../models/noticias");
 const route = express.Router();
 
 //Constrollers
@@ -6,7 +7,12 @@ const email = require("../controllers/sendEmail");
 
 //Construccion
 route.get("/", function(req, res){
-	res.render("site/index.html", {user: req.user});
+	Noticia.find()
+		.sort({'date': -1})
+		.limit(5)
+		.exec(function(err, noticias){
+			res.render("site/index.html", {user: req.user, noticias: noticias});
+		});
 });
 
 route.get("/departamentos", function(req, res){

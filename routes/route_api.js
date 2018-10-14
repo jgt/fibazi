@@ -1,6 +1,9 @@
 const express = require("express");
 const User = require("../models/user");
 const api = express.Router();
+const multer = require("multer")({
+	dest: "public/uploads"
+});
 
 //Controllers
 const user = require("../controllers/users");
@@ -8,9 +11,15 @@ const solicitud = require("../controllers/solicitud");
 const lider = require("../controllers/lideres");
 const roles = require("../controllers/createRoles");
 const pagos = require("../controllers/pagos");
+const noticias = require("../controllers/noticias");
 
 //Midleware
 const permisos = require("../middleware/roles");
+
+//Noticias
+api.route("/noticias")
+	.get(noticias.getNoticias)
+	.post([multer.single('imagen')], noticias.postNoticias)
 
 //Buscador Garantia
 api.route("/buscador-garantia")
